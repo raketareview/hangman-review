@@ -29,8 +29,18 @@ Enter one letter: E
 Secret word: _e___
 Errors: 1
 ```
-
 2. Нет списка введенных букв.
+3. Нет защиты от дурака
+```
+-----* MENU *-----
+1. Start a new game
+2. Rules
+3. Exit
+Select one option: 
+dfdf
+Exception in thread "main" java.lang.NumberFormatException: For input string: "dfdf"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+```
 
 ## ХОРОШО
 
