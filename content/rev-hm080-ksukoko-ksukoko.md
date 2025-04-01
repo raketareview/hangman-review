@@ -113,7 +113,7 @@ if ("Нет".equals(newGame)) {
 String command = scanner.nextLine();
 ```
 
--КОНСТАНТЫ_ПИШУТСЯ_СТИЛЕМ_UPPER_SNAKE
+- КОНСТАНТЫ_ПИШУТСЯ_СТИЛЕМ_UPPER_SNAKE
 ```
 private static final String[] hangmanStages
 
@@ -152,7 +152,7 @@ void startGame()
 *Мартин, "Чистый код", гл.2*  
 *Ютуб, Немчинский "Как называть переменные, методы и классы?"*  
 
-**2. Нарушение конвенции кода**, публичные меоды должны находиться выше вспомогательных приватных. А метод `main()` должен быть выше всех остальных. Поля не должны находиться ниже методов
+**2. Нарушение конвенции кода**
 ```
 public class Hangman {
   private static void selectRandomWord() {...}
@@ -164,6 +164,7 @@ public class Hangman {
   //...
 }
 ```
+Публичные методы должны находиться выше вспомогательных приватных. А метод `main()` должен быть выше всех остальных. Поля не должны находиться ниже методов
 
 **3. Нарушение DRY**, магические буквы, числа, слова. Вводи константы 
 ```
@@ -216,7 +217,7 @@ private static boolean isIncorrectGuess(char userGuess) {
   boolean correct = false;
   for (int i = 0; i < randomWord.length(); i++) {
     if (randomWord.charAt(i) == userGuess) {
-      hiddenWord[i] = userGuess;
+      hiddenWord[i] = userGuess;  <-- побочный эффект
       correct = true;
     }
   }
@@ -226,7 +227,7 @@ private static boolean isIncorrectGuess(char userGuess) {
 Но кроме этого метод еще открывает букву в маске `char[] hiddenWord`.
 Метод нужно разделить на несколько, каждый из которых будет выполнять только одну задачу.
 
-Другие методы с побочными эффектами: `isWordComplete()`, `selectRandomWord()`.
+Другие методы с побочными эффектами: `isWordComplete()`, `selectRandomWord()`.  
 *Фаулер "Рефакторинг", г.6, п."Извлечение метода"*  
 
 **6. Стоит разделить класс Hangman на несколько**, это улучшит читаемость кода.
