@@ -138,7 +138,7 @@ public void start() {
 
 //ЛУЧШЕ:
 public void start() {
-  renderer.printStartMessage("Начинаем игру!");
+  renderer.printStartMessage();
   runGameLoop();
 }
 ```
