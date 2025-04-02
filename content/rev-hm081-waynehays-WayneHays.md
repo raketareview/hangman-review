@@ -407,9 +407,9 @@ List<Integer> list = difficultySelector.setWordLengthBoundariesForDifficultyLeve
 * Сначала получить от юзера язык
 * На основе языка создать ресурс с текстами на нужном языке
 * Получить от юзера уровень сложности
-* Создать словарь с выбранным языком и длинной слов, которые заданы уровнем сложности
+* Создать словарь с выбранным языком и длиной слов, которые заданы уровнем сложности
 * Создать валидатор букв на основе выбранного языка
-* создать контроллер игры и передать в него движок, словарь, валидатор, текстовый ресурс, рисователь
+* Cоздать контроллер игры и передать в него словарь, валидатор, текстовый ресурс, рисователь
 
 Стартовать этот процесс в моем представлении должен как-то так
 ```
@@ -428,8 +428,8 @@ public class Main {
     //...
     GameLevel level = //...
 
-    String filename = language.name() + ".txt"; //напр. "RU.txt"
-    Dictionary dictionary = new Dictionary(filename, level.min, level.max);
+    String filename = language.name() + "_words.txt"; //напр. "RU_words.txt"
+    Dictionary dictionary = new Dictionary(filename, level.minLength, level.maxLength);
     
     GameController gameController = new gameController(dictionary, messageCenter, validator, painter);
     gameController.start();
@@ -460,12 +460,12 @@ enum GameLevel {
   EASY(0, 5),
   MEDIUM(8, 10);
 
-  public final int min;
-  public final int max;
+  public final int minLength;
+  public final int maxLength;
 
-  public GameLevel(int min, int max) {
-    this.min = min;
-    this.max = max;
+  public GameLevel(int minLength, int maxLength) {
+    this.minLength = minLength;
+    this.maxLength = maxLength;
   }
 
 }
@@ -483,8 +483,8 @@ public class RuMediumStarter {
     //...
     GameLevel level = GameLevel.MEDIUM;
 
-    String filename = language.name() + ".txt"; //"RU.txt"
-    Dictionary dictionary = new Dictionary(filename, level.min, level.max);
+    String filename = language.name() + "_words.txt"; //"RU_words.txt"
+    Dictionary dictionary = new Dictionary(filename, level.minLength, level.maxLength);
     
     GameController gameController = new gameController(dictionary, messageCenter, validator, painter);
     gameController.start();
@@ -492,14 +492,13 @@ public class RuMediumStarter {
 
 }
 ```
-
 Более подробно про локализацию я писал тут: https://t.me/zhukovsd_it_chat/53243/119188
 
 ## ВЫВОД
 
 Для лучшего понимания декомпозиции посмотреть ролики Сергея про шахматы. Посмотреть ролики Немчинского про SOLID.
 У Сергея есть расширенные материалы по хангману, там несколько часов видео, где он подробно объясняет мативацию при создании классов, в том числе уровни сложности в игре.  
-При желании можно приобрести доступ к этим материалам, тем более что каждый в течении недели каждого месяца они продаются с 50% скидкой.  
+При желании можно приобрести доступ к этим материалам, в течении недели каждого месяца они продаются с 50% скидкой.  
 
 n.81(151)  
 #ревью #виселица #движок #локализация
