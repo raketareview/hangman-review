@@ -34,7 +34,7 @@ String checkIsLetter()
 String inputLetter()
 ```
 
-- Название переменной должно обхяснять, что хранит переменная. В эту строку юзер может ввести не только начало или конец, а все, что угодно, например слово "инвентаризация"
+- Название переменной должно объяснять, что хранит переменная. В эту строку юзер может ввести не только начало или конец, а все, что угодно, например слово "инвентаризация"
 ```
 String startOrEnd = scanner.next().toUpperCase();
 
@@ -55,7 +55,7 @@ String word = getRandomWord();
 String newWordNew;
 ```
 
-- Ne pishy translitom! Esli ne znaesh perevod, ispolzuy gugl-perevodcik
+- Ne pishy translitom! Esli ne znaesh perevod, ispolzuy gugl-perevodchik
 ```
 printImageVisel(boolean checkLetterInWord)
 
@@ -63,7 +63,7 @@ printImageVisel(boolean checkLetterInWord)
 printImageGallows(boolean checkLetterInWord)
 ```
 
-- Название метода вводи в заблуждение. Обещает напечатать, что буквы нетути. Но может это напечатать, а может и не напечатать- все это зависит от управляющего флага
+- Название метода вводит в заблуждение. Обещает напечатать, что буквы нетути. Но может это напечатать, а может и не напечатать- все это зависит от управляющего флага
 ```
 public static void printNoLetter(boolean letterInWord) {
   if (!letterInWord) System.out.println("Такой буквы нет!");
@@ -91,7 +91,7 @@ for(int d : values) {
 *Мартин, "Чистый код", гл.2*  
 *Ютуб, Немчинский "Как называть переменные, методы и классы?"*  
 
-**2. Нарушение Инкапсуляции**, публичным должен быть только методод main.
+**2. Нарушение инкапсуляции**, публичным должен быть только методод main.
 
 **3. Избыточно**, для распечатки пустой строки пиши просто println без аргументов
 ```
@@ -121,7 +121,7 @@ if (startOrEnd.equals("В")){...}
 if (!((startOrEnd.length() == 1 && startOrEnd.matches("[НВ]")))) {
   System.out.println("Введите букву Н или В");
 }
-//и еще по коду миллион строк с буквами Н, В. А, Я 
+//и еще по коду миллион строк с буквами Н, В, А, Я 
 
 //ПРАВИЛЬНО:
 private final static String START = "Н";
@@ -139,7 +139,7 @@ if (!((startOrEnd.length() == 1 && startOrEnd.matches(COMMAND_REGEX)))) {
   System.out.printf("Введите букву %s или %s %n", START, QUIT);
 }
 ```
-Другие магические штуки в проекте: "*", "words", 6.
+Другие магические штуки в проекте: "*", "words", 6.  
 *Фаулер, "Рефакторинг", гл.8 п."Замена магического числа символической константой"*   
 *refactoring.guru "Замена магического числа символьной константой"*  
 
@@ -221,27 +221,15 @@ if (!((startOrEnd.length() == 1 && startOrEnd.matches("[НВ]")))) {
   System.out.println("Введите букву Н или В");
 }
 
-if (!(newLetter.length() == 1 && newLetter.matches("[а-яА-Я]"))) {
-  System.out.println("Вы уже вводили эту букву. Введите одну букву от А до Я");  
-}
-
 //ПРАВИЛЬНО:
 String command = //...
 if(!isValidCommand(command)) {
   System.out.printf("Введите букву %s или %s %n", START, QUIT);
 }
 
-if (!isRussianLetter(newLetter)) {
-  System.out.printf("Вы уже вводили эту букву. Введите одну букву от %s до %s %n", START, QUIT);  
-}
-
 //...
 private static boolean isValidCommand(String command) {
   return command.length() == 1 && command.matches(COMMAND_REGEX);
-}
-
-private static boolean isRussianLetter(String s) {
-  return command.length() == 1 && command.matches(RU_LETTER_REGEX);
 }
 ```
 
@@ -307,17 +295,17 @@ void printImageVisel(boolean checkLetterInWord) <-- чиво?
 void printImageVisel(int numPicture) <-- распечатает картинку под номером "numPicture"
 ```
 
-- Инициализация картинок в самом методе- избыточно. Каждый раз привызове метода будет заново создаваться набор картинок. Картинки нужно вынести в константу. 
+- Инициализация картинок в самом методе- избыточно. Каждый раз при вызове метода будет заново создаваться набор картинок. Картинки нужно вынести в константу. 
 
 - Хранение картинок в массиве `char[][]` это сложно, избыточно и нечитаемо. 
-Храни картинки либо в двумерном массиве строк `String[][]`, либо в массиве многострочных строк (`java 13 or higher`)
+Храни картинки либо в двумерном массиве строк `String[][]`, либо в массиве многострочных строк (java 13 or higher)
 ```
 String s = """
     это
     многострочный
     стринг
   """;  
-```  
+```
 
 - Распечатка картинки виселицы через switch-case или if-elseif - индусский код.  
 Картинки нужно хранить в статическом массиве и печатать по номеру, например, так
@@ -357,7 +345,7 @@ public void printPicture(int numPicture) {
 
 **14. Пиши код так, чтобы он читался как открытая книга**, для этого вводи вспомогательные методы.
 
-Например, смотрим на большой код, выявляем смысловые блоки
+Например, смотрим на большой кусок кода, выявляем смысловые блоки
 ```
 public static void gameLoop(String newWord) {
   do {
@@ -377,7 +365,7 @@ public static void gameLoop(String newWord) {
    }
   } while (true);
 }  
-``` 
+```
 
 И выносим их во вспомогательные методы
 ```
@@ -455,7 +443,7 @@ public static void main(String[] args) {
 ## ВЫВОД
 
 Для новичка не так плохо, как могло бы быть. Просто нужно тренироваться.  
-Посмотри ролики Немчинского про DRY, KISS, наименование переменных и прочие основы.
+Посмотри ролики Немчинского про DRY, KISS, наименование переменных и другие его видео про основы.
 
 n.82(153)  
 #ревью #виселица
