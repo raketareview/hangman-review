@@ -81,7 +81,7 @@ List<String> listOfErrors = new ArrayList<>();
 List<String> errors = new ArrayList<>();
 ```
 
-- Названия метода должно быть глаголом в повелительном наклонении
+- Название метода должно быть глаголом в повелительном наклонении
 ```
 void readingFromFile()
 
