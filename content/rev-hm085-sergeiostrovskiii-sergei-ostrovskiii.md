@@ -110,7 +110,7 @@ public int MAX_NUNBER_ERROR = 7;
 boolean maxCountError
 
 //ПРАВИЛЬНО:
-boolean isМаксимальноКоличествоОшибок
+boolean isМаксимумОшибок
 ```
 
 *Oracle Java code conventions, part."Naming conventions"*  
@@ -279,7 +279,7 @@ private static boolean isNumber(String s) {
 
 **10. class ValidationUtils**
 
-- Класс не может называться утилитой, потому что не является утилитным классом. Гугли, какой класс в яве может считаться утилитным.
+- Этот класс не может называться утилитой, потому что не является утилитным классом. Гугли, какой класс в яве может считаться утилитным.
 
 - Цель существования данного метода для меня не ясна. Но точно понятно одно- метод не проверяет переменную на null
 ```
@@ -293,7 +293,7 @@ public Boolean isNull(char[] array) {
 }
 ```
 
-Потому что вот
+Потому что
 ```
 public static void main(String[] args) {
   ValidationUtils validationUtils = new ValidationUtils();
@@ -307,7 +307,7 @@ Exception in thread "main" java.lang.NullPointerException: Cannot read the array
 ```
 
 - На самом деле этот класс ничего не валидирует. Второй и последний его метод не менее странный, чем первый.  
-Он создает мапу, в которой ключом является индекс буквы в слове, а значением- эта буква
+Он создает мапу, в которой ключом является индекс буквы в слове, а значение- эта буква
 ```
 public Map<Integer, Character> indexLettersInWord(char letter, String word) {
   Map<Integer, Character> indexLeters = new HashMap<>();
@@ -341,7 +341,7 @@ public Map<Integer, Character> indexLettersInWord(char letter, String word) {
 **12. class Game**
 
 - Спрашивать играть/не_играть нужно не в классе Game а где-то перед его созданием. Например, в main'e.  
-Потому что если игрок ответит "нет", то класс Game был создан зря
+Потому что если игрок ответит "нет", то экземпляр класса Game был создан зря
 ```
 public void play() {
   boolean isPlay = Menu.menu();
@@ -355,6 +355,11 @@ if (input > 47 & input < 58)
 
 //ПРАВИЛЬНО:
 if (input >= '0' & input <= '9')
+```
+
+- Почитай, в чем состоит разница между операторами "&" и "&&". В Данном случае правильно так
+```
+if (input >= '0' && input <= '9')
 ```
 
 - Божественный метод `void startGameLoop()` длинной более 70 строк. 
