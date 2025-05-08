@@ -457,7 +457,7 @@ while (!isGameOver()) {
 private boolean isGameOver() {
   return isWin() || isLose();
 }
-``` 
+```
 
 **10. class HangmanPicture**
 
