@@ -139,7 +139,7 @@ try {
 } catch (IOException e) {  
   System.err.println("Ошибка чтения файла: " + e.getMessage());  <-- ИГНОРИРОВАНИЕ ИСКЛЮЧЕНИЯ
 }
-String randomWord = wordList.get(random.nextInt(0, wordList.size())); <-- ПРИ ИГНОРИРОВАНИИ IOException ТУТ ВЫЛЕТИТ NPE ПОТОМУ ЧТО wordList НЕ БЫЛ ЗАПОЛНЕН В try
+String randomWord = wordList.get(random.nextInt(0, wordList.size())); <-- ПРИ ИГНОРИРОВАНИИ IOException ТУТ ВЫЛЕТИТ IndexOutOfBoundsException ПОТОМУ ЧТО wordList НЕ БЫЛ ЗАПОЛНЕН В try
 ```
 В случае, если файл со словами не был прочитан, нужно вывести соответствующее сообщение и корректно закрыть программу без вываливания красных эксепшенов в консоль.
 
@@ -252,4 +252,4 @@ public static void main(String[] args) {
 Для процедурного стиля неплохо.
 
 n.88(171)  
-#ревью #виселица
+#ревью #виселица 
