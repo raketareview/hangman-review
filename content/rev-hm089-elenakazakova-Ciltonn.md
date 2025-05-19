@@ -272,6 +272,13 @@ private static String getRandomWord() {
   secretWord = words.get(index);  <-- ПОБОЧНЫЙ ЭФФЕКТ
   return secretWord;
 }
+
+//ПРАВИЛЬНО:
+private static String getRandomWord() {
+  Random random = new Random();
+  int index = random.nextInt(words.size());
+  return words.get(index);
+}
 ```
 *Мартин "Чистый код", гл.3, "Избавьтесь от побочных эффектов"*
 
