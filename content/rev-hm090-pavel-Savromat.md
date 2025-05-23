@@ -55,6 +55,15 @@ void checkGameState(String word, String mask, int mistakes) {
   //...    
 }
 ```
+
+- Название должно как можно лучше объяснять суть явления. Это конечно "ответ", но этот ответ является командой для выполнения действий: выйти или играть
+```
+System.out.println("Хотите сыграть еще раз? д/н");
+char answer = scanner.next().charAt(0);
+
+//ЛУЧШЕ:
+char command = scanner.next().charAt(0);
+```
 *Oracle Java code conventions, part."Naming conventions"*  
 *Мартин, "Чистый код", гл.2*  
 *Ютуб, Немчинский "Как называть переменные, методы и классы?"*  
