@@ -127,7 +127,7 @@ System.out.println("Вы уже вводили эту букву: " + input + ".
 System.out.printf("Вы уже вводили эту букву: %s. Введите другую букву. %n", input);
 ```
 
-**6. Перехватывай проверяемые исключения и вместо них бросай проверяемые**, тогда не привется в сигнатуре всех методов прописывать `throws`
+**6. Перехватывай проверяемые исключения и вместо них бросай проверяемые**, тогда не придется в сигнатуре всех методов прописывать `throws`
 ```
 public static void main(String[] args) throws FileNotFoundException { <-- ГИРЛЯНДА В СИГНАТУРЕ
   List<String> words = readWords();
@@ -145,11 +145,12 @@ private static List<String> readWords()  { <-- НЕТ ГИРЛЯНДЫ В СИГ
   try {
     scanner = new Scanner(new File("words.txt"));
   } catch (FileNotFoundException e) {
-    throw new RuntimeException(FILE_EXCEPTION_MESSAGE, e);
+    throw new RuntimeException(FILE_EXCEPTION_MESSAGE, e); <-- ЗАМЕНА НА НЕПРОВЕРЯЕМОЕ ИСКЛЮЧЕНИЕ
   }
   //...
 }
 ```
+*"ЧК", гл.7, п."...проверяемые исключения"*
 
 **7. Инициализируй массивы сразу на этапе создания**
 ```
