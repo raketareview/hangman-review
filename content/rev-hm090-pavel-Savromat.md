@@ -219,15 +219,15 @@ do {
   //...
 } while (!isGameOver());
 
-private static isGameOver() {
+private static boolean isGameOver() {
   return isLose() || isWin();
 }
 
-private static isLose() {
+private static boolean isLose() {
   return mistakes == MAX_MISTAKES
 }
 
-private static isWin() {
+private static boolean isWin() {
   return mask.equals(word)
 }
 ```
