@@ -37,7 +37,6 @@ class InpuRussianLetter
 public class Dictionary {
   ArrayList<String> dictionary = new ArrayList<>();
   ArrayList<String> getDictionary()
-  ArrayList<Integer> indexLetters = new ArrayList<>();
   //...
 }
 
@@ -45,7 +44,6 @@ public class Dictionary {
 public class Dictionary {
   List<String> words = new ArrayList<>();
   List<String> getWords()
-  List<Integer> indexLetters = new ArrayList<>();
   //...
 }
 ```
