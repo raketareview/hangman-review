@@ -163,7 +163,7 @@ Exception in thread "main" java.lang.IllegalArgumentException: bound must be pos
 
 **9. class ConsoleGraphics**
 
-+ 👍 Идеально.
+👍 Идеально.
 
 **10. class Game**
 
