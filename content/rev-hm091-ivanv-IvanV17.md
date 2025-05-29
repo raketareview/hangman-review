@@ -161,7 +161,16 @@ Exception in thread "main" java.lang.IllegalArgumentException: bound must be pos
 
 **9. class ConsoleGraphics**
 
-👍 Идеально.
+`👍 Идеально.`
+
+Почти идеально, но единственный метод в классе должен или печатать картинку или возвращать ее
+```
+public static String printHangman(int errorCount) {
+  System.out.println(hangmanStages[errorCount]);  <-- ИЛИ ПЕЧАТАЙ КАРТИНКУ (команда)
+  return hangmanStages[errorCount];  <-- ИЛИ ВОЗВРАЩАЙ КАРТИНКУ (запрос)
+}
+```
+*Мартин, "Чистый код", гл.3, "Разделение команд и запросов"*
 
 **10. class Game**
 
