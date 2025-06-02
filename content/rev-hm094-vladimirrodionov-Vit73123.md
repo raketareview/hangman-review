@@ -37,7 +37,7 @@ Exception in thread "main" java.lang.NullPointerException
 ```
 
 5. Можно ввести не только русскую букву, но английскую букву, цифру и все что угодно. 
-6. Можно ввести не одну букву, а набор букв и это будет считаться допустимым вводом
+6. Можно ввести не одну букву, а набор букв и это будет считаться допустимым вводом.
 
 ## ХОРОШО
 
@@ -47,7 +47,7 @@ Exception in thread "main" java.lang.NullPointerException
 
 **1. Нейминг**
 
-- Название должно как можно лучше объявлять суть явления. В классе `Word` есть `String result`- это название не объясняет ничего. В этой переменной хранится маска слова.
+- Название должно как можно лучше объяснять суть явления. В классе `Word` есть `String result`- это название не объясняет ничего. В этой переменной хранится маска слова.
 
 - Эти названия имеют примерно такую же ценность, как отсутствие какого-либо названия
 ```
@@ -173,8 +173,8 @@ System.out.println("Вы не отгадали букву. Буквы '" + lette
    "Использована " + error + " из " + MAX_ERROR + " попыток\n");
 
 //ПРАВИЛЬНО:
-System.out.printf("Вы не отгадали букву. Буквы '%s' нет в слове %n", letter);
-System.out.printf("Использована %d из %d попыток %n", error, MAX_ERROR);
+System.out.printf("Вы не отгадали букву. Буквы '%s' нет в слове \n", letter);
+System.out.printf("Использована %d из %d попыток \n", error, MAX_ERROR);
 ```
 
 **7. Слишком длинные конструкции**, которые трудно понять.
@@ -284,17 +284,17 @@ private static boolean isNo(String answer) {
 Общий код выноси во вспомогательные методы:
 ```
 private static boolean isYes(String s) {
-  return isCommand(String s, YES_STRING);
+  return isCommand(s, YES_STRING);
 }
 
 private static boolean isNo(String s) {
-  return isCommand(String s, NO_STRING);
+  return isCommand(s, NO_STRING);
 }
 
 private static boolean isCommand(String s, String command) {
-  if (s.isEmpty()) return false;
+
   return s.equalsIgnoreCase(bigCommand) ||
-    command.charAt(0) == Character.toLowerCase(s.charAt(0));  <-- КОРОТКАЯ КОМАНДА ЭТО НАЧАЛЬНАЯ БУКВА ДЛИННОЙ
+    command.charAt(0) == Character.toLowerCase(s.charAt(0));  <-- КОРОТКАЯ КОМАНДА ЭТО НАЧАЛЬНАЯ БУКВА ДЛИННОЙ КОМАНДЫ
 }
 ```
 
@@ -340,7 +340,7 @@ private boolean guessLetter(char letter) {
   //...
   newLetters.setCharAt(index, newLetter);  <-- ВЫПОЛНЯЕТ КОМАНДУ, открывает букву в маске
   //...
-  return true;  ВЫПОЛНЯЕТ ЗАПРОС, сообщает открыта ли буква в слове
+  return true;  <-- ВЫПОЛНЯЕТ ЗАПРОС, сообщает открыта ли буква в слове
 }
 ```
 *Мартин, "Чистый код", гл.3, "Разделение команд и запросов"* 
