@@ -333,5 +333,5 @@ private static boolean isNumber(String s) {
 Сергей, КН в процедурном стиле: https://www.youtube.com/watch?v=PPikj1qHxrA  
 Я, КН в ООП стиле: https://t.me/zhukovsd_it_chat/53243/187097
 
-n.93(178)
+n.93(178)  
 #ревью #виселица 
