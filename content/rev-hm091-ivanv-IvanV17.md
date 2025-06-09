@@ -197,5 +197,5 @@ private static void guessesLetter(ArrayList<Integer> indexLetters, char letter) 
 
 В целом, для процедурного стиля неплохо.
 
-n.91(176)
+n.91(176)  
 #ревью #виселица 
