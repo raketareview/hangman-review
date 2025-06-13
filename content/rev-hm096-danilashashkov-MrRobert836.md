@@ -367,7 +367,7 @@ indexOfGameWordLetter[i] = i + 1;
 //открыть букву 'а' -> маска "*а**а*а"
 char letter = 'a';
 for(int i = 0; i < text.length(), i++) {
-  if(word.charAt(i) == 'letter') {
+  if(word.charAt(i) == letter) {
     mask.setCharAt(i, letter);  //StringBuilder
   } 
 }

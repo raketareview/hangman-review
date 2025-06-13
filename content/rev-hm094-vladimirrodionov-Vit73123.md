@@ -323,7 +323,7 @@ public static Map<Character, List<Integer>> toLettersIndexes(String word)
 //открыть букву 'а' -> маска "*а**а*а"
 char letter = 'a';
 for(int i = 0; i < text.length(), i++) {
-  if(text.charAt(i) == 'letter') {
+  if(text.charAt(i) == letter) {
     mask.setCharAt(i, letter);  //StringBuilder
   } 
 }
