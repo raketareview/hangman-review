@@ -58,13 +58,13 @@ void открытьБуквуВмаске(String word, StringBuilder encryptedWo
 
 **2. Нарушение инкапсуляции**
 
-Нет никаких оснований, чтобы эти константы были публичными. В этой рееализации публичным должен быть только метод `main()`
+Нет никаких оснований, чтобы эти константы были публичными. В этой реализации публичным должен быть только метод `main()`
 ```
 public static final int MAX_ERRORS_COUNT = 6;
 public static final Scanner SCANNER = new Scanner(System.in);
 ```
 
-**4. Нарушение DRY**, магические буквы, числа, слова. Вводи константы (1)
+**4. Нарушение DRY**, магические буквы, числа, слова. Вводи константы
 ```
 System.out.print("\n1. Новая игра\n2. Выход\nВыберите вариант: ");
 case "1":  //...
@@ -139,6 +139,8 @@ if (!isRussianLetter(inputString)) {
   System.out.println("Необходимо ввести одну букву русского алфавита.");
   continue;
 }
+
+private static boolean isRussianLetter(...) {...}
 ```
 
 **9. Распечатка виселицы**
@@ -239,6 +241,10 @@ if (!Objects.equals(gameState, GAME_STATE_NOT_FINISHED)) {
 ```
 if (isLose(...)) {
    printLoseMessage();
+   return;
+} 
+if (isWin(...)) {
+   printWinMessage();
    return;
 }
 ```
