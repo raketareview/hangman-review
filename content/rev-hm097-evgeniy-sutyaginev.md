@@ -79,7 +79,7 @@ private final static String QUIT = "2";
 System.out.printf("\n%s. Новая игра\n%s. Выход\nВыберите вариант: ", START, QUIT);
 case START:  //...
 case QUIT:  //...
-System.out.printf("Вы должны ввести число 1 или 2. \n", START, QUIT);
+System.out.printf("Вы должны ввести число %s или %s. \n", START, QUIT);
 ```
 *Фаулер, "Рефакторинг", гл.8, "Замена магического числа символической константой"*   
 *refactoring.guru "Замена магического числа символьной константой"*
