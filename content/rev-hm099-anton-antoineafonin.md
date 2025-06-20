@@ -1,4 +1,4 @@
-https://github.com/antoineafonin/hangman/tree/main  
+https://github.com/antoineafonin/hangman  
 [Anton]
 
 Игра в процедурном стиле, выполнена в двух классах. Местами удручающе.
