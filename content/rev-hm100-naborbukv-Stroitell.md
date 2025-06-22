@@ -77,12 +77,16 @@ System.out.println("Сыграть ещё?");
 System.out.println("да/нет");
 ```
 
-**3. Это здесь должны быть константы**
+**3. Константы**
+
+Эти данные по ходу программы не изменяются, поэтому должны быть константами
 ```
 private static String reset = "\u001B[0m";
+private static String red = "\u001B[31m";
 
 //ПРАВИЛЬНО:
 private static final String RESET = "\u001B[0m";
+private static String RED = "\u001B[31m";
 ```
 
 **4. Нарушение DRY**, магические буквы, числа, слова. Вводи константы
