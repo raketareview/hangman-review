@@ -86,7 +86,7 @@ private static String red = "\u001B[31m";
 
 //ПРАВИЛЬНО:
 private static final String RESET = "\u001B[0m";
-private static String RED = "\u001B[31m";
+private static final String RED = "\u001B[31m";
 ```
 
 **4. Нарушение DRY**, магические буквы, числа, слова. Вводи константы
