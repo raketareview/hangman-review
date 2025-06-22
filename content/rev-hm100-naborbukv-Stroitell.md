@@ -228,7 +228,7 @@ int checkCharacter(...)
 Буква должна быть символом. Название должно объяснять, что делает метод:
 ```
 private static boolean contains(String word, char letter) {
-  return word.contains(character);
+  return word.contains(letter);
 }
 ```
 
