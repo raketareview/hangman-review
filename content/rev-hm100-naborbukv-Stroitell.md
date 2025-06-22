@@ -124,7 +124,7 @@ System.out.println("Допустимые сивмолы: " + green + "абвгд
 
 printlnColor("Некорректный ответ", YELLOW);
 System.out.print("Допустимые сивмолы: ");
-printlnColor("Некорректный ответ", GREEN);
+printlnColor("абвгдеёжзийклмнопрстуфхцчшщъыьэюя", GREEN);
 
 private void printColor(String message, String color) {
   System.out.print(color);
