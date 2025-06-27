@@ -85,7 +85,7 @@ Scanner myReader = new Scanner(myFile);
 
 //ЛУЧШЕ:
 File file = new File(FILEPATH);
-Scanner scanner = new Scanner(myFile);
+Scanner scanner = new Scanner(file);
 ```
 
 - Название обманывает. Метод не добавляет список букв, метод добавляет букву в список
