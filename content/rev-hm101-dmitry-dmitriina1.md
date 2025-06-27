@@ -131,7 +131,6 @@ void gameSession(GameEngine gameEngine)
 //ПРАВИЛЬНО:
 void initGameSession(GameEngine gameEngine)
 ```
-
 *Oracle Java code conventions, part."Naming conventions"*  
 *Мартин, "Чистый код", гл.2*  
 *Ютуб, Немчинский "Как называть переменные, методы и классы?"*  
