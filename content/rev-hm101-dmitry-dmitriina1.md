@@ -273,7 +273,14 @@ if (!gameEngine.isLose()) {
 Достаточно, если в классе будет только один метод, например `public char inputRussianLetter()`.
 
 - Судя по названию и наличию метода `char inputChar()`, класс должен только обеспечивать пользовательский ввод. 
-Но он еще почему-то распечатывает какой-то информационный бюллетень, включая картинку виселицы.
+Но он еще почему-то распечатывает какой-то информационный бюллетень, включая картинку виселицы
+```
+private void printGameSituation(String comment) {
+  System.out.println(comment);  More actions
+  System.out.println(gameEngine.getWordManipulator().getWordMask());  <-- ПЕЧАТАЕТ МАСКУ СЛОВА
+  System.out.println(gameEngine.getGamePictures().getPicture(gameEngine.getErrorScore())); <-- ПЕЧАТАЕТ КАРТИНКУ ВИСЕЛИЦЫ
+}
+```
 Это даже по меркам процедурного стиля что-то максимально далекое от заявленного пользовательского ввода.
 
 **8. class PicturesDrawer**
@@ -464,7 +471,7 @@ public static void main(String[] args) {
 
 ### Пример правильного разбиения программы на классы в ООП стиле
 
-**Маскированное слово**.  
+**Маскированное слово**  
 
 Оно имеет состояния:   
 + Секретное слово  
