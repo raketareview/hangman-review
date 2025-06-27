@@ -276,7 +276,7 @@ if (!gameEngine.isLose()) {
 Но он еще почему-то распечатывает какой-то информационный бюллетень, включая картинку виселицы
 ```
 private void printGameSituation(String comment) {
-  System.out.println(comment);  More actions
+  System.out.println(comment);  
   System.out.println(gameEngine.getWordManipulator().getWordMask());  <-- ПЕЧАТАЕТ МАСКУ СЛОВА
   System.out.println(gameEngine.getGamePictures().getPicture(gameEngine.getErrorScore())); <-- ПЕЧАТАЕТ КАРТИНКУ ВИСЕЛИЦЫ
 }
