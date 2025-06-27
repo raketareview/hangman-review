@@ -273,14 +273,7 @@ if (!gameEngine.isLose()) {
 Достаточно, если в классе будет только один метод, например `public char inputRussianLetter()`.
 
 - Судя по названию и наличию метода `char inputChar()`, класс должен только обеспечивать пользовательский ввод. 
-Но он еще почему-то распечатывает какой-то информационный бюллетень, включая картинку виселицы
-```
-private void printGameSituation(String comment) {
-  System.out.println(comment);  
-  System.out.println(gameEngine.getWordManipulator().getWordMask());  <-- ПЕЧАТАЕТ МАСКУ СЛОВА
-  System.out.println(gameEngine.getGamePictures().getPicture(gameEngine.getErrorScore())); <-- ПЕЧАТАЕТ КАРТИНКУ ВИСЕЛИЦЫ
-}
-```
+Но он еще почему-то распечатывает какой-то информационный бюллетень, включая картинку виселицы.
 Это даже по меркам процедурного стиля что-то максимально далекое от заявленного пользовательского ввода.
 
 **8. class PicturesDrawer**
