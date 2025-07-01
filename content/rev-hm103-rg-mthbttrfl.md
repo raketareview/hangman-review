@@ -58,6 +58,7 @@ public class Word {
   private final String word;
   //...
 }
+
 public class Input {
   private char input;
   //...
@@ -76,9 +77,13 @@ public class Logic {
 public class Word {
   private final String text;
   //...
-}
-public class Input {
+}public class Input {
   private char symbol;
+  //...
+}
+
+public class Logic {
+  private final char[] text;
   //...
 }
 ```
