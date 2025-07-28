@@ -388,12 +388,12 @@ while(!isGameOver()) {
   char letter = inputRussianLetter(); //получить от юзера одиночную букву русского языка
   
   if(isEnteredLetter(letter)) {  //эта буква уже была введена
-    printEnteredLetter();
+    printEnteredLetterMessage();
     continue
   }
 
   if(!isWordLetter(letter)) {  //этой буквы нет в слове
-    printNoWordLetter();
+    printNoWordLetterMessage();
     continue;
   }
   
