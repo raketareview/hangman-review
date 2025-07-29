@@ -1,5 +1,5 @@
 https://github.com/40iron/hangman  
-[40iron]
+[user]
 
 ## НЕДОСТАТКИ РЕАЛИЗАЦИИ
 
