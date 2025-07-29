@@ -89,7 +89,7 @@ while (counter > 0 || mistakes < 6) {...}
 if (mistakes == 6) {...}
 
 //ПРАВИЛЬНО:
-private final static inr MAX_ERROR = 6;
+private final static int MAX_ERROR = 6;
 
 public static String[] mistakesArray = new String[MAX_ERROR];
 mistakesArray = new String[MAX_ERROR];
