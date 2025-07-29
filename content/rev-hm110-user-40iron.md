@@ -245,7 +245,7 @@ System.out.println("      Ошибки(" + mistakes + "): " + mistakesArray[0] +
 ArrayList<String> russianAlphabet = new ArrayList<>(Arrays.asList("а", "б", "в", "г", "д", "е", "ё", ..., "я"));
 
 //ПРАВИЛЬНО:
-private boolean isRussianLetter(char letter) {
+private static boolean isRussianLetter(char letter) {
   letter = Character.toLowerCase(letter);  
   return (letter >= 'а' && letter <= 'я') || letter == 'ё';
 }
