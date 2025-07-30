@@ -39,7 +39,9 @@ _______
 
 - Если в проекте есть класс Word то все переменные с именем, включающим это название, должны быть экземплярами этого класса
 ```
-List<String> words = new ArrayList<>();
+public class Word {...} <-- КЛАСС С ИМЕНЕМ WORD
+
+List<String> words = new ArrayList<>();  <-- СПИСОК СОДЕРЖИТ НЕ ЭКЗЕМПЛЯРЫ WORD
 String hiddenWord = words.get(random.nextInt(words.size()));
 Word word = new Word(hiddenWord);
 
