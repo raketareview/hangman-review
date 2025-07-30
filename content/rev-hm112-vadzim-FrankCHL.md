@@ -87,13 +87,9 @@ Arrays.fill(unknowWord, '_');
 **2. Используй классы через их интерфейсы**
 ```
 ArrayList<String> wordsArray;
-//...
-wordsArray = new ArrayList<>();
 
 //ПРАВИЛЬНО:
-List<String> wordsArray;
-//...
-wordsArray = new ArrayList<>();
+List<String> words;
 ```
 Общее правило: ArrayList нужно использовать через List, HashSet- через Set и т.д. 
 Это позволяет пользоваться преимуществами полиморфизма.
@@ -125,13 +121,13 @@ System.out.println("\n[1] Начать игру\n[2] Выйти из игры");
 А так будет видно, как в итоге будет выглядеть сообщение
 ```
 System.out.println("==============   ");
-System.out.println("ВИСЕЛИЦА         ");
+System.out.println("   ВИСЕЛИЦА      ");
 System.out.println("==============   ");
 System.out.println("[1] Начать игру  ");
 System.out.println("[2] Выйти из игры");
 ```
 
-**5. Нарушение DRY**, магические буквы, числа, слова. Вводи константы (1)
+**5. Нарушение DRY**, магические буквы, числа, слова. Вводи константы
 ```
 System.out.println("\n[1] Начать игру\n[2] Выйти из игры");
 if (choice.equals("1")) 
@@ -331,7 +327,7 @@ try {
 } catch (Exception e) {
   System.out.println(e.getMessage());
 }
-//полмиллиона строк  кода
+//ещё полмиллиона строк кода
 ```
 
 - Всегда лови конкретное исключение, никогда не лови базовое исключение
