@@ -16,7 +16,7 @@ q
 Назови букву!
 魚
 
-<...>Для лучшего понимания декомпозиции ООП посмотреть ролики Сергея про шахматы. Посмотреть ролики Немчинского про SOLID.
+<...>
 Количество совершенных ошибок: 2
 ```
 
@@ -68,7 +68,7 @@ void checkAnswer(String inputtedString)
 ```
 Нужно для самого себя внятно сформулировать, что *на самом деле делает этот метод*(а не что ты сейчас ошибочно думаешь, что он делает) и назвать этот метод соответственно.
 
-- Название обманывает. Метод не заменяет букву(меняет одну букву на другую). Он ее открывает букву, то есть делает делает ее видимой для игрока
+- Название обманывает. Метод не заменяет букву(меняет одну букву на другую). Он открывает букву, то есть делает ее видимой для игрока
 ```
 void replaceLetter(String inputtedString) 
 ```
@@ -112,7 +112,7 @@ System.out.printf("\nЯ тебя не понял... Ты хочешь сыгра
 public class Main {
   public static void main(String[] args) {
     //...
-    while (gameRound.getErrorCount() < 6 && isWordNotGuessed) { <-- НЕ НЕ_ПРОИГРАЛ И НЕ ВЫИГРАЛ
+    while (gameRound.getErrorCount() < 6 && isWordNotGuessed) { <-- УСЛОВИЕ: НЕ НЕ_ПРОИГРАЛ И НЕ ВЫИГРАЛ
       //...
     }
     //...
@@ -127,9 +127,9 @@ public class Dialogue {
 
   public void printRoundStatus(GameRound gameRound) {
     //...
-    if (!maskedWord.equals(rightAnswer) && errorCount == 6) { <-- ПРОИГРАЛ
+    if (!maskedWord.equals(rightAnswer) && errorCount == 6) { <-- УСЛОВИЕ: ПРОИГРАЛ
       //...
-    } else if (maskedWord.equals(rightAnswer)) {  <-- ВЫИГРАЛ
+    } else if (maskedWord.equals(rightAnswer)) {  <-- УСЛОВИЕ: ВЫИГРАЛ
       //...
     }
   }
@@ -194,7 +194,7 @@ throw new NullPointerException(FAIL_MESSAGE);
 
 - Нарушение SRP, чужая ответственность, зависимость модели от представления.
 
-Модель(а эта бизнес-логика явленная в этом классе это модель) не должна ничего печатать в консоль
+Модель(а бизнес-логика, явленная в этом классе, это модель) не должна ничего печатать в консоль
 ```
 System.out.println("Path to file is null");
 ```
@@ -220,16 +220,16 @@ public List<String> getAllWords() {
 Например так:
 ```
 List<String> words = dictionary.getAllWords();
-words.clear();
+words.clear();  <-- ОЧИСТКА СЛОВАРЯ ЗДЕСЬ ОЧИСТИТ ЕГО И В ОБЪЕКТЕ DICTIONARY
 ```
 Из-за этого класс является гибридом со всеми вытекающими последствиями: *"Чистый код", гл.6* 
 
 Правильно- если объект не immutable(не не_изменяемый) возвращать копию хранимого объекта, а не оригинал:
 ```
-private final List<String> dictionary;
+private final List<String> words;
 
 public List<String> toList() {
-  return new ArrayList(dictionary);
+  return new ArrayList(words);
 }
 ```
 
@@ -270,7 +270,7 @@ public GameRound startGame(String dictionaryFilePath)
 и еще миллион других.
 
 Еще обрати внимание, что вывод сообщений о, например, текущем статусе игры- это не диалог, а монолог.  
-Диалог это когда один спрашивает, а второй отвечает.
+Диалог это когда один говорит, а второй отвечает.
 
 **9. Рекурсия** 
 ```
@@ -280,7 +280,7 @@ public String askLetter() {
     System.out.println("\nНекорректный ввод! Ты должен ввести одну букву!");
     return askLetter();
   }
-  return inputtedString.toLowerCase();
+  //...
 }
 ```
 
