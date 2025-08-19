@@ -123,8 +123,7 @@ private boolean isНеиспользованнаяБукваСлова(char lett
 }
 ```
 
-**7. Если есть try, то должен быть cach** перехватывай в точке их возникновения и заменяй на проверяемые. 
-Изучи различия проверяемых и непроверяемых исключений 
+**7. Если есть try, то должен быть cach**
 ```
 public static void loadWords(String path) throws IOException {
   try (BufferedReader file = new BufferedReader(new FileReader(path))) {
