@@ -116,14 +116,14 @@ public static void main(String[] args) throws IOException {
 if (word.contains(String.valueOf(letter)) && !usedLetters.contains(letter)) {...}
 
 //ПРАВИЛЬНО:
-if (isНеиспользованнаяБуваСлова(letter)) {...}
+if (isНеиспользованнаяБукваСлова(letter)) {...}
 
-private boolean isНеиспользованнаяБуваСлова(char letter) {
+private boolean isНеиспользованнаяБукваСлова(char letter) {
   return word.contains(String.valueOf(letter)) && !usedLetters.contains(letter);
 }
 ```
 
-**7. Есди есть try, то должен быть cach** перехватывай в точке их возникновения и заменяй на проверяемые. 
+**7. Если есть try, то должен быть cach** перехватывай в точке их возникновения и заменяй на проверяемые. 
 Изучи различия проверяемых и непроверяемых исключений 
 ```
 public static void loadWords(String path) throws IOException {
@@ -142,7 +142,7 @@ public static void loadWords(String path) throws IOException {
 }
 ```
 
-**8. Непроверямые исключения** перехватывай в точке их возникновения и заменяй на проверяемые. 
+**8. Проверямые исключения** перехватывай в точке их возникновения и заменяй на непроверяемые. 
 Изучи различия проверяемых и непроверяемых исключений 
 ```
 public static void loadWords(String path) throws IOException { <-- МУСОР В СИГНАТУРЕ
@@ -189,7 +189,7 @@ public static void startGame() throws IOException
 Делает много всего сразу, разобраться в нем трудно, код читается плохо. 
 Метод разделить на несколько маленьких, каждый из которых будет делать свое.
 
-Например, находишь в большом месяце автономные смысловые блоки и выносишь их во вспомогательные методы:
+Например, находишь в большом методе автономные смысловые блоки и выносишь их во вспомогательные методы:
 ```
 public static void startGame() throws IOException {
   //...  
