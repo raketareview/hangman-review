@@ -89,7 +89,7 @@ if (dictionary.isEmpty()) {
 private static final Integer MAX_GUESSES = 6;
 
 //ПРАВИЛЬНО:
-private static final Integer MAX_GUESSES = 6;
+private static final int MAX_GUESSES = 6;
 ```
 Для применения класса-обертки над примитивным типом данных, должна быть какая-то причина. 
 Здесь использование обертки не дает ничего большего по сравнению с примитивом.
