@@ -357,7 +357,7 @@ public class TestMain {
   public static void main(String[] args) {
     HangmanGame hangmanGame = new HangmanGame();
     String word = Dictionary.randomWord();
-    System.out.println("ПОДСКАЗКА: " + secretWord);
+    System.out.println("ПОДСКАЗКА: " + word);
     hangmanGame.run(word);
   }
 }
