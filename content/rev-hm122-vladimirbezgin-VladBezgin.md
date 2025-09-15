@@ -351,6 +351,17 @@ public class TestMain {
   }
 }
 ```
+Или просто так:
+```
+public class TestMain {
+  public static void main(String[] args) {
+    HangmanGame hangmanGame = new HangmanGame();
+    String word = Dictionary.randomWord();
+    System.out.println("ПОДСКАЗКА: " + secretWord);
+    hangmanGame.run(word);
+  }
+}
+```
 
 **10. class Main**, содержит точку входа main
 
