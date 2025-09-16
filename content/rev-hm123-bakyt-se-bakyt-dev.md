@@ -19,7 +19,7 @@ Thanks for playing!
 2. Нет списка введенных букв
 
 ## ХОРОШО
-+ 👍 Прикольные заметки с UML диашраммой классов [learning-development-progress.md](https://github.com/bakyt-dev/hangman2/blob/master/src/learning-development-progress.md)  
++ 👍 Прикольные заметки с UML диаграммой классов [learning-development-progress.md](https://github.com/bakyt-dev/hangman2/blob/master/src/learning-development-progress.md)  
 + 👍 Игра запускается
 + 👍 Можно ввести только одиночную букву английского алфавита
 
@@ -72,7 +72,7 @@ public class Main {
 }
 ```
 
-**3. Нарушение DRY**, магические буквы, числа, слова. Вводи константы. А если они уже есть- пользуйся (2)
+**3. Нарушение DRY**, магические буквы, числа, слова. Вводи константы. А если они уже есть- пользуйся
 ```
 System.out.println("\nWant to start a game? (Y/N): ");
 
@@ -118,14 +118,14 @@ public class GuessManager {
 
 **5. Используй классы через их интерфейсы**
 ```
-private static ArrayList<String> words;
-private HashSet<Character> correctGuesses;
-public HashSet<Character> getCorrectGuesses() {...}
+ArrayList<String> words;
+HashSet<Character> correctGuesses;
+HashSet<Character> getCorrectGuesses() {...}
 
 //ПРАВИЛЬНО:
-private static List<String> words;
-private Set<Character> correctGuesses;
-public Set<Character> getCorrectGuesses() {...}
+List<String> words;
+Set<Character> correctGuesses;
+Set<Character> getCorrectGuesses() {...}
 ```
 Общее правило: ArrayList нужно использовать через List, HashMap- через Map и т.д. 
 Это позволяет пользоваться преимуществами полиморфизма.
@@ -245,7 +245,7 @@ for (char letter : currentWord.toCharArray()) {
   }
 }
 ```
-*Гугли: почему в цикле нельзя складывать строки*
+*Гугли: java почему в цикле нельзя складывать строки*
 
 **8. class HangmanDraw**
 
@@ -291,7 +291,7 @@ public void drawHangman(int wrongCount) {
 
 //ПРАВИЛЬНО:
 public void drawHangman(int wrongCount) {
-  System.out.println(HANGMAN_STAGES[wrongCount]);
+  System.out.println(HANGMAN_STAGES[wrongCount]);  <-- КИНЕТ ИСКЛЮЧЕНИЕ ПРИ НЕКОРРЕКТНОМ НОМЕРЕ ОШИБКИ
 }
 ```
 
@@ -306,7 +306,7 @@ void startGame()
 *Мартин "ЧК", гл.3, "Компактность!"*  
 *Фаулер "Рефакторинг", гл.6, "Извлечение метода"* 
 
-- Вводи вспомогательные методы, делай код проще и понятнее:
+- Вводи вспомогательные методы, делай код проще и понятнее, например:
 ```
 private static boolean isEnglishLetter(char c) {
   c = Character.toLowerCase(c);
@@ -336,7 +336,8 @@ boolean isGameOver() {
 }
 ```
 
-Да, у тебя вроде как есть метод, который определяет конец игры, но это что-то совсем невнятное
+Да, у тебя вроде как есть метод, который типа определяет конец игры. 
+Но он, как я писал выше, не определяет конец игры, а потому используется в коде очень невнятно:
 ```
 while (!this.guessManager.isGameOver() && !this.wordManager.isWordComplete(this.guessManager.getCorrectGuesses())) {...}
 ```
@@ -431,7 +432,6 @@ public class GameController {
   //...
   public void startGame() {
     String randomWord = getRandomWord();
-    //System.out.println(randomWord);
     <some code>
   }
 
