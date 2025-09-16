@@ -488,7 +488,5 @@ watched: OOP decomposition of the game "Four in a row" from the TG community cha
 Стрим Сергея [Крестики-нолики в процедурном стиле](https://www.youtube.com/watch?v=PPikj1qHxrA)  
 Мой стрим [Крестики-нолики в ООП стиле](https://t.me/zhukovsd_it_chat/53243/187097)
 
-## ВЫВОД
-
 n.123(228)  
 #ревью #виселица 
