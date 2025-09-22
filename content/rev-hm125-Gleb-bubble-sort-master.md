@@ -69,7 +69,7 @@ for (char letter : word)
 
 - Этот метод не инициализирует словарь. 
 Потому что инициализация происходит в отношении того объекта, который уже существует. 
-А этот метиод создает и возвращает словарь
+А этот метод создает и возвращает словарь
 ```
 ArrayList<String> initialiseDictionary()
 
@@ -121,7 +121,76 @@ if (isWordSolved(wordToGuess, correctGuesses)) {
 }
 ```
 
-**4. Создавай вспомогательные методы**, делай программу более простой и понятной
+**4. Удаляй участки кода, когда они становятся бессмысленным**
+```
+int a = 1213;
+```
+
+**5. Нарушение инкапсуляции**. Публичным должен быть только метод `main()`. Остальные методы и поля здесь должны быть приватными.
+
+**6. Используй классы через их интерфейсы**
+```
+ArrayList<String> correctGuesses = new ArrayList<>();
+ArrayList<String> wrongGuesses = new ArrayList<>();
+void runNewGameLoop(ArrayList<String> dictionary)
+
+//ПРАВИЛЬНО:
+List<String> correctGuesses = new ArrayList<>();
+List<String> wrongGuesses = new ArrayList<>();
+void runNewGameLoop(List<String> dictionary)
+```
+Общее правило: ArrayList нужно использовать через List, HashMap- через Map и т.д. 
+Это позволяет пользоваться преимуществами полиморфизма.
+
+Да, бывают ситуации, когда, например, с LinkedList нужно работать именно как с LinkedList, а не с List. Но это уже нюансы.
+
+**7. Цикл while** всегда лучше читается, когда он написан в варианте `while() {...}`, а не `do {...} while()` - тогда сразу видно условие входа в цикл и выхода из него. 
+Если есть возможность, `do-while` нужно переделывать на обычный `while`. 
+Вечные циклы всегда пиши только так
+```
+public static void runNewGameLoop(ArrayList<String> dictionary) {
+  //...
+  do {
+    //миллион строк
+  } while (true);
+}
+
+//ЛУЧШЕ:
+public static void runNewGameLoop(ArrayList<String> dictionary) {
+  //...
+  while (true) {
+    //миллион строк
+  } ;
+}
+```
+
+**8. Бери данные из окружения**
+
+Если одни и те же данные используются в разных методах класса, то эти данные нужно не перекидывать туда-сюда между методами, а сделать их полями класса
+```
+public static boolean isAlreadyGuessedLetter(String letter, ArrayList<String> correctGuesses, ArrayList<String> wrongGuesses) {...} 
+public static boolean isWordSolved(String guessedWord, ArrayList<String> correctGuesses) {...}
+
+//ТУТ ПРАВИЛЬНО:
+
+private static String guessedWord;
+private static List<String> correctGuesses;
+private static List<String> wrongGuesses;
+
+private static boolean isAlreadyGuessedLetter(char letter) {...} 
+private static boolean isWordSolved() {...}
+```
+
+**9. Последовательность выполнения действий**
+
+Загрузка словаря словами происходит раньше диалога "Играть или выйти?".  
+Поэтому, если при первом запуске игры юзер выберет "Выйти", то чтение файла и загрузка словаря словами были зря
+```
+ArrayList<String> dictionary = initialiseDictionary();
+//диалог "Играть или выйти"
+```
+
+**10. Создавай вспомогательные методы**, делай программу более простой и понятной
 ```
 do {
   //...
@@ -149,75 +218,6 @@ boolean isLose() {...}
 boolean isGameOver() {
   return isWin() || isLose();  
 }
-```
-
-**5. Удаляй участки кода, когда они становятся бессмысленным**
-```
-int a = 1213;
-```
-
-**6. Нарушение инкапсуляции**. Публичным должен быть только метод `main()`. Остальные методы и поля здесь должны быть приватными.
-
-**7. Используй классы через их интерфейсы**
-```
-ArrayList<String> correctGuesses = new ArrayList<>();
-ArrayList<String> wrongGuesses = new ArrayList<>();
-void runNewGameLoop(ArrayList<String> dictionary)
-
-//ПРАВИЛЬНО:
-List<String> correctGuesses = new ArrayList<>();
-List<String> wrongGuesses = new ArrayList<>();
-void runNewGameLoop(List<String> dictionary)
-```
-Общее правило: ArrayList нужно использовать через List, HashMap- через Map и т.д. 
-Это позволяет пользоваться преимуществами полиморфизма.
-
-Да, бывают ситуации, когда, например, с LinkedList нужно работать именно как с LinkedList, а не с List. Но это уже нюансы.
-
-**8. Цикл while** всегда лучше читается, когда он написан в варианте `while() {...}`, а не `do {...} while()` - тогда сразу видно условие входа в цикл и выхода из него. 
-Если есть возможность, `do-while` нужно переделывать на обычный `while`. 
-Вечные циклы всегда пиши только так
-```
-public static void runNewGameLoop(ArrayList<String> dictionary) {
-  //...
-  do {
-    //миллион строк
-  } while (true);
-}
-
-//ЛУЧШЕ:
-public static void runNewGameLoop(ArrayList<String> dictionary) {
-  //...
-  while (true) {
-    //миллион строк
-  } ;
-}
-```
-
-**9. Бери данные из окружения**
-
-Если одни и те же данные используются в разных методах класса, то эти данные нужно не перекидывать туда-сюда между методами, а сделать их полями класса
-```
-public static boolean isAlreadyGuessedLetter(String letter, ArrayList<String> correctGuesses, ArrayList<String> wrongGuesses) {...} 
-public static boolean isWordSolved(String guessedWord, ArrayList<String> correctGuesses) {...}
-
-//ТУТ ПРАВИЛЬНО:
-
-private static String guessedWord;
-private static List<String> correctGuesses;
-private static List<String> wrongGuesses;
-
-private static boolean isAlreadyGuessedLetter(char letter) {...} 
-private static boolean isWordSolved() {...}
-```
-
-**10. Последовательность выполнения действий**
-
-Загрузка словаря словами происходит раньше диалога "Играть или выйти?".  
-Поэтому, если при первом запуске игры юзер выберет "Выйти", то чтение файла и загрузка словаря словами были зря
-```
-ArrayList<String> dictionary = initialiseDictionary();
-//диалог "Играть или выйти"
 ```
 
 **11. Реакция на ошибки**
