@@ -192,7 +192,7 @@ static String russianAlphabet = "абвгдеёжзийклмнопрстуфх�
 Например, через коды символов в таблице ASCII/unicode:
 ```
 private static boolean isRussianLetter(char symbol) {
-  letter = Character.toLowerCase(letter);
+  symbol = Character.toLowerCase(symbol);
   return (symbol >= 'а' && symbol <= 'я') || symbol == 'ё';
 }
 ```
@@ -285,4 +285,4 @@ private static boolean isLose(int mistake) {
 Для развития навыков процедурной декомпозиции, посмотреть стрим Сергея [Крестики-нолики в процедурном стиле](https://www.youtube.com/watch?v=PPikj1qHxrA)
 
 n.130(240)  
-#ревью #симуляция #виселица
+#ревью #виселица 
