@@ -57,7 +57,7 @@ Set<Character> wordLetters
 Set<Character> incorrectLetters
 ```
 
-- Хуже венгерской ноттации только венгерская ноттация, которая обманывает. Тип данных этой переменной char, но название такте, будто этот тип- Character 
+- Хуже венгерской ноттации только венгерская ноттация, которая обманывает. Тип данных этой переменной char, но название такое, будто этот тип- Character 
 ```
 char character = input.charAt(0);
 
@@ -111,7 +111,7 @@ do {
   //миллион строк
 } while (true);
 
-//ЛУЧШЕ:
+//ПРАВИЛЬНО:
 while (true) {
   //миллион строк
 }
@@ -213,7 +213,7 @@ private static final String[] PICTURES = {
    // more pics
 };
 
-public void printPicture(int numPicture) {  
+public static void printPicture(int numPicture) {  
   System.out.println(PICTURES[numPicture]);
 }
 ```
@@ -241,7 +241,7 @@ boolean isGameOver(...) {
 
 **11. Вспомогательные методы**
 
-Вводи вспомогательные методы, которые будут делать код более прсотым и поняиным
+Вводи вспомогательные методы, которые будут делать код более прсотым и понятным
 ```
 if (searchWord.contains(String.valueOf(charTry))) {
   correctCharSet.add(charTry);
@@ -250,7 +250,7 @@ if (searchWord.contains(String.valueOf(charTry))) {
 }
 
 //ПРАВИЛЬНО:
-if (isWordLetter(letter)) {
+if (isБукваСодержитсяВслове(letter)) {
   wordLetters.add(letter);
 } else {
   incorrectLetters.add(letter);
