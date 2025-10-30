@@ -102,7 +102,7 @@ private final static String HIGH = "3";
 System.out.println(LOW + " - Легкий (короткие слова)");
 System.out.println(MIDDLE + " - Средний (средние слова)");
 System.out.println(HIGH + " - Сложный (длинные слова)");
-System.out.printf("Ваш выбор (%d-%d): ", LOW, HIGH);
+System.out.printf("Ваш выбор (%s-%s): ", LOW, HIGH);
 
 case LOW: //...
 case MIDDLE: //...
