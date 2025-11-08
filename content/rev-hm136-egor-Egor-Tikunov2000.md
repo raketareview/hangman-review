@@ -192,7 +192,7 @@ public class CorrectLetter : LetterFeedback
 
 **6. class WordsChecker**
 
-- Здесь мы видим, как используются ранее рассмотренные Фидбеки. Это просто контейнеры какого-то конкретного строкового сообщения
+- Тут мы видим, как используются ранее рассмотренные Фидбеки
 ```
 public LetterFeedback MakeLetterCommand(char letter) 
 {
