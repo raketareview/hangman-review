@@ -429,7 +429,7 @@ private boolean introducedCharsChecker(String input) {
 }
 
 //ПРАВИЛЬНО:
-private bvoid introducedCharsChecker(String input) {
+private void introducedCharsChecker(String input) {
   //...
   else {
     throw new RuntimeException(REPEAT_MESSAGE.toUpperCase());
@@ -454,7 +454,7 @@ private bvoid introducedCharsChecker(String input) {
 Есть простейшие нарушения конвенции кода. 
 Первым делом, нужно изучить *Oracle Java code conventions"*
 
-Не видно понимание ООП на базовом уровне- зачем нужны интерфейсы и как их нужно использовать.
+Не видно понимания ООП на базовом уровне- зачем нужны интерфейсы и как их нужно использовать.
 
 Если хочешь разобраться, как делать эту задачу в ООП стиле, можешь обратиться к Сергею за расширенными материалами к Виселице.
 
