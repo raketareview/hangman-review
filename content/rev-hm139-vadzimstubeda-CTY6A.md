@@ -276,7 +276,7 @@ public final class HangmanPicture {
            |
            |
            |
-     =========";
+     =========
      """
       ,
       """
@@ -285,7 +285,7 @@ public final class HangmanPicture {
        0   |
            |
            |
-     =========";
+     =========
      """
    // more pics
   };
