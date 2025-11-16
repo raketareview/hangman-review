@@ -75,9 +75,9 @@ System.out.println("Please enter a Russian letter (а-я, ё).");
 private final static String START = "Y";
 private final static String QUIT = "N";
 
-private final static char FIRST_LETTER = "а";
-private final static char LAST_LETTER = "я";
-private final static char SPECIAL_LETTER = "ё";
+private final static char FIRST_LETTER = 'а';
+private final static char LAST_LETTER = 'я';
+private final static char SPECIAL_LETTER = 'ё';
 
 System.out.printf("Would you like to play new game? (%s/%s) \n", START, QUIT);
 if (!scanner.nextLine().equalsIgnoreCase(START)) {...}
