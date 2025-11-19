@@ -51,9 +51,8 @@ https://github.com/VeraAtnagullova15/Hangman---Java
 
 **1. Нейминг**
 
-- Название классов должно быть существительным. Эти классы названы глаголами:
+- Название классов должно быть существительным. Этот класс назван глаголом:
 ```
-class ChoiceOfWord 
 class PrintHangman
 ```
 
@@ -103,12 +102,9 @@ char[] wordWithStars = makeSecretWord(wordForGuess);
 char[] secretWord = makeSecretWord(wordForGuess);
 ```
 
-- "Снова"- избыточное уточнение
+- Этот метод не вводит букву снова. Он добавляет букву в список использованных букв в том случае, если этой буквы еще там нет
 ```
 boolean enterLetterAgain(char symbol, ArrayList<String> list)
-
-//ПРАВИЛЬНО:
-boolean inputLetter(char symbol, ArrayList<String> list)
 ```
 
 - При прочих равных, в названия не нужно вставлять частицы "Of", "The" и т.д. 
