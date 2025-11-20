@@ -345,14 +345,19 @@ public class HangmanRenderer {
 
 - Всё намного проще
 ```
-switch (countOfErrors) {
-  case 0, 1, 2, 3, 4, 5, 6 -> System.out.println(positions[countOfErrors]);
-  default -> System.out.println("Некорректное значение");
+public static void draw(int countOfErrors) {
+  //... 
+  switch (countOfErrors) {
+    case 0, 1, 2, 3, 4, 5, 6 -> System.out.println(positions[countOfErrors]);
+    default -> System.out.println("Некорректное значение");
+  }
 }
 
 //ПРАВИЛЬНО:
-String picture = positions[countOfErrors];
-System.out.println(picture);
+public static void draw(int countOfErrors) {
+  String picture = positions[countOfErrors];
+  System.out.println(picture);
+}
 ```
 Во втором случае, если значение `countOfErrors` будет некорректным, 
 то вместо распечатки сообщения "Некорректное значение", выкинет исключение.
