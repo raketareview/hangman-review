@@ -93,7 +93,8 @@ Set<String> usedCharacters = new HashSet<>();
 Set<String> usedLetters = new HashSet<>();
 ```
 
-- Чарактер не может быть строкой. Даже "Letter" не может быть строкой
+- "Character" не может быть строкой, потому что так называется класс данных, который хранит один символ. 
+Даже "Letter" не может быть строкой, потому что буква тоже состоит из одного символа 
 ```java
 String guessCharacter = scanner.next().toLowerCase();
 
