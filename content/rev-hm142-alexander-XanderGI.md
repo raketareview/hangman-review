@@ -531,12 +531,13 @@ public class Main {
         Выберите язык словаря:
         %d. Русский
         %d. English""".formatted(RUSSIAN_DICTIONARY, ENGLISH_DICTIONARY);
-
     String error = "Такой опции нет! Попробуйте ещё раз.";
-    Dialog<Integer> dialog = new IntegerMinMaxDialog(title, error, RUSSIAN_DICTIONARY, ENGLISH_DICTIONARY);
 
-    int answer = dialog.input();
-    System.out.println("ВВЕДЕНО: " + answer);
+    Dialog<Integer> dialog = new IntegerMinMaxDialog(title, error, RUSSIAN_DICTIONARY, ENGLISH_DICTIONARY);
+    int index = dialog.input();
+    
+    Language language = Language.values()[index-RUSSIAN_DICTIONARY];
+    System.out.println("ВЫБРАН ЯЗЫК: " + language);
   }
 }
 ```
@@ -546,18 +547,18 @@ public class Main {
 Выберите язык словаря:
 1. Русский
 2. English
-цц
-Такой опции нет! Попробуйте ещё раз.
-Выберите язык словаря:
-1. Русский
-2. English
 0
 Такой опции нет! Попробуйте ещё раз.
 Выберите язык словаря:
 1. Русский
 2. English
-1
-ВВЕДЕНО: 1
+ыцц
+Такой опции нет! Попробуйте ещё раз.
+Выберите язык словаря:
+1. Русский
+2. English
+2
+ВЫБРАН ЯЗЫК: EN
 ```
 
 Более подробно в моем стриме [начиная с 6:28](https://t.me/zhukovsd_it_chat/53243/176204)
