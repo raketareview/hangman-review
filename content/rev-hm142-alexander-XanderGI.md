@@ -85,6 +85,18 @@ public static final String[] HANGMAN
 ```java
 class Painter
 ```
+
+- Не называй метод "run" если он не переопределяет `Runnable.run()`- название этого метода ассоциируется с этим стандартным интерфейсом `Runnable` и применением потоков. 
+Здесь этот метод не имеет отношение к `Runnable.run()`
+```java
+public class GameController {
+  public void run() {...}
+  //...
+}
+
+//ПРАВИЛЬНО:
+start(){...} //go(), execute(), perform(), поехали() 
+```
 *Oracle Java code conventions, part."Naming conventions"*  
 *Мартин, "Чистый код", гл.2*  
 *Ютуб, Немчинский "Как называть переменные, методы и классы?"*  
@@ -105,18 +117,6 @@ System.out.println(ENGLISH_DICTIONARY + ". English");
 
 case RUSSIAN_DICTIONARY -> //...
 case ENGLISH_DICTIONARY -> //...
-```
-
-- Не называй метод "run" если он не переопределяет `Runnable.run()`- название этого метода ассоциируется с этим стандартным интерфейсом и применением потоков. 
-Здесь этот метод не имеет отношение к `Runnable.run()`
-```java
-public class GameController {
-  public void run() {...}
-  //...
-}
-
-//ПРАВИЛЬНО:
-start(){...} //go(), execute(), perform(), поехали() 
 ```
 *Фаулер, "Рефакторинг", гл.8, "Замена магического числа символической константой"*  
 *refactoring.guru "Замена магического числа символьной константой"*  
