@@ -53,7 +53,7 @@ public void reloadDictionary(Path path) {...}
 //ПРАВИЛЬНО:
 public ChoiceWord(Path path) {...}
 
-public void reloadDictionary(Path path) 
+public void reloadDictionary(Path path) {...} 
 ```
 
 - Название путает, "log" у читателя кода будет ассоциироваться с Logger
