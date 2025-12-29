@@ -16,6 +16,22 @@ https://github.com/nadillustrator/HangmanGame
 
 **1. Нейминг**
 
+- Осознанно придерживайся конвенции кода.
+
+Если придерживаться Oracle Java code conventions, эту константу нужно писать стилем UPPER_SNAKE.  
+А если конвенции Google, то так, как здесь написано.  
+Неважно, какой конвенции ты придерживаешься. Главное, делать это осознанно
+```java
+//СЕЙЧАС ТАК:
+private final static List<String> pictures
+
+//КОНВЕНЦИЯ ORACLE:
+private final static List<String> PICTURES
+
+//КОНВЕНЦИЯ GOOGLE:
+private final static List<String> pictures
+```
+
 - Если в проекте есть класс `Picture`, то все переменные с именем, включающим это название, должны быть экземплярами этого класса
 ```java
 public class Picture {
@@ -35,22 +51,6 @@ public class Picture {
 Например, какой тип данных будет иметь здесь переменная "x"? Что это, список экземпляров Picture или что-то иное?
 ```java
 var x = Picture.getPictures();
-```
-
-- Осознанно придерживайся конвенции кода.
-
-Если придерживаться Oracle Java code conventions, эту константу нужно писать стилем UPPER_SNAKE.  
-А если конвенции Google, то так, как здесь написано.  
-Неважно, какой конвенции ты придерживаешься. Главное, делать это осознанно
-```java
-//СЕЙЧАС ТАК:
-public static final Scanner scanner = new Scanner(System.in);
-
-//КОНВЕНЦИЯ ORACLE:
-public static final Scanner SCANNER = new Scanner(System.in);
-
-//КОНВЕНЦИЯ GOOGLE:
-public static final Scanner scanner = new Scanner(System.in);
 ```
 
 - Не запутывай читателя твоего кода
