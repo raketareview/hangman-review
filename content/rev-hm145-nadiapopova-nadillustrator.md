@@ -16,14 +16,6 @@ https://github.com/nadillustrator/HangmanGame
 
 **1. Нейминг**
 
-- КОНСТАНТЫ_НУЖНО_ПИСАТЬ_СТИЛЕМ_UPPER_SNAKE
-```java
-private final static List<String> pictures = List.of(...);
-
-//ПРАВИЛЬНО:
-private final static List<String> PICTURES = List.of(...);
-```
-
 - Если в проекте есть класс `Picture`, то все переменные с именем, включающим это название, должны быть экземплярами этого класса
 ```java
 public class Picture {
