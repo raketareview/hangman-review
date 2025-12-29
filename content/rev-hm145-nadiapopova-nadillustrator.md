@@ -99,7 +99,6 @@ private void setLetterToDisplayWord(Game game, String letter)
 //ПРАВИЛЬНО:
 private void setDisplayWordLetter(Game game, String letter)
 ```
-
 *Oracle Java code conventions, part."Naming conventions"*  
 *Мартин, "Чистый код", гл.2*  
 *Ютуб, Немчинский "Как называть переменные, методы и классы?"*
@@ -337,4 +336,4 @@ public class Main {
 Подробное объяснение, как делать эту программу в процедурном и ООП стилях, есть у Сергея в расширенных материалах.
 
 n.145(274)  
-#ревью  #виселица 
+#ревью #виселица 
