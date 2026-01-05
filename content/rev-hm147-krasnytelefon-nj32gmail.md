@@ -24,6 +24,7 @@ https://github.com/nj32gmail/Hangman
 public class Main {
   void run(String dictionaryFilename) {...}
 }
+```
 
 - Какой слысл здесь несет уточнение "ANSI" и "ESCAPE"?
 Не вижу, что добавляет это уточнение к пониманию этих констант.  
