@@ -257,7 +257,7 @@ if (isWordLetter(letter)) {...}
 *Мартин, "ЧК", гл.4*  
 
 - Если в названии есть приставка "And", значит с методом что-то не так
-```java 
+```java
 private char readAndValidateLetter(TreeSet<Character> usedLetters)
 ```
 Либо метод делает больше одного дела.  
@@ -299,4 +299,4 @@ private char inputUnusedRussianLetter(TreeSet<Character> usedLetters)
 Подробное объяснение, как делать эту программу в процедурном и ООП стилях, есть у Сергея в расширенных материалах.
 
 n.148(281)  
-#ревью #виселица
+#ревью #виселица 
