@@ -160,6 +160,23 @@ while (...) {
 
 + 👍 С инкапсуляцией все ок. Публичный только точка входа main().
 
+- Эта группа инструкций является отдельным смысловым блоком и стоило бы их вынести во вспомогательный метод
+```java
+private static void start() {
+  List<String> words = readWords();
+  errorLeters = new ArrayList<>();
+  word = getRandomWord(words);
+  mask = getMaskWord(word);
+  //...
+}
+
+//ПРАВИЛЬНО:
+private static void start() {
+  initRound();
+  //...
+}
+```
+
 - Тут можно делать сразу return
 ```java
 String randomWord = words.get(indexWord).toUpperCase();
