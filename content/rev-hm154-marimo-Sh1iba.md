@@ -1,4 +1,4 @@
-https://github.com/Sh1iba/hangman-game.git  
+https://github.com/Sh1iba/hangman-game  
 [Маримо]
 
 Игра в процедурном стиле, выполнена в нескольких классах.
