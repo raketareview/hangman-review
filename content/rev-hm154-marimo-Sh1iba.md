@@ -477,8 +477,8 @@ public static void main(String[] args) {
 
 //ПРАВИЛЬНО;
 public static void main(String[] args) {
-  Game game = new Hangman();
-  game.startGame();
+  Hangman hangman = new Hangman();
+  hangman.startGame();
 }
 ```
 
@@ -490,4 +490,4 @@ public static void main(String[] args) {
 В целом, для процедурного стиля неплохо.  
 
 n.154(295)  
-#ревью #виселица
+#ревью #виселица 
