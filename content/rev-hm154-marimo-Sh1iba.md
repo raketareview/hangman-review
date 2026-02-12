@@ -355,7 +355,8 @@ char letter = inputUnusedRussianLetter()
 private char inputRussianLetter() {
   System.out.println("Введите букву: ");
   while (true) {
-    //получить строку от юзера, если она не один символ- не принять
+    //получить строку от юзера, 
+    //если она не один символ- не принять и начать ввод заново
     //если строка один символ- преобразовать ее в char
     char letter = ...
     if(isRussianLetter(letter)) {
