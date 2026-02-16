@@ -147,22 +147,6 @@ System.out.printf("Введите %s: Новая игра  %n",  NEW_GAME);
 System.out.printf("Введите %s: Выйти из игры  %n", EXIT);
 ```
 
-**6. Если в блоке if есть return(break, continue, throw, exit и т.д.), то else не пишется.**  
-В этом случае неважно, будет else или нет, так как программа будет работать одинаково, а код без `else` будет выглядеть читабельней
-```java
-if (startGameMenu()) {
-  startGameLoop();
-} else {
-  return;
-}
-
-//ПРАВИЛЬНО:
-if (startGameMenu()) {
-  startGameLoop();
-} 
-return;
-```
-
 **7. Объявляй переменные там, где они используются**
 
 Минимизируй область видимости локальных переменных
