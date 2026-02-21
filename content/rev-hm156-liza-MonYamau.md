@@ -323,7 +323,7 @@ if(!isSecretWordLetter(letter)) {
   //действия, если буквы нет в слове
 }
 
-private static boolean isSecretWordLetter(boolean letter) {
+private static boolean isSecretWordLetter(char letter) {
   String s = String.valueOf(letter);  
   return secretWord.contains(s);
 }
@@ -343,7 +343,7 @@ if(isNotSecretWordLetter(letter)) {
 Но ты не делай так- "отрицательные" методы в коде программы читаются хуже "положительных":
 ```java
 //❌ ЭТО ПЛОХО 
-boolean isNotSecretWordLetter(boolean letter) {  
+boolean isNotSecretWordLetter(char letter) {  
   //проверяет на отсутствие буквы
 }  
 
