@@ -537,7 +537,6 @@ private static void openLetter(char letter) {
 private static String secretWord;  //слово игры: "инкапсуляция"
 private static StringBuilder mask; //маска игры: "и-ка--ул-ци-"
 
-static StringBuilder mask = new StringBuilder("-----");
 private static void openLetter(char letter) {
   for (int i = 0; i < secretWord.length(); i++) {
     if (secretWord.charAt(i) == letter) {
