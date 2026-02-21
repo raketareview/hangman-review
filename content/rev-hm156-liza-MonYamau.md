@@ -57,7 +57,7 @@ List<String> words;
 char validateInputLetter()
 
 //ПРАВИЛЬНО:
-chat inputOneRussianUpperLetter()
+chat inputRussianUpperLetter()
 ```
 
 - Название не соответствует тому, что делает метод
@@ -349,7 +349,7 @@ boolean isNotSecretWordLetter(boolean letter) {
 
 //✔️ ЭТО ХОРОШО
 boolean isSecretWordLetter(boolean letter) {
-  //проверяет на наличие буквы буквы
+  //проверяет на наличие буквы
 }
 ```
 
@@ -469,10 +469,10 @@ while (!isGameOver()) {
 //✔️ ХОРОШО:
 while (!isGameOver()) {
   //...  
-  if(isSecretWordLetter) {
+  if(isSecretWordLetter(letter)) {
     //действия, если буква есть в слове
   } else {
-    incrementErrorCount(); //или просто mistakeCount++
+    incrementMistakeCount(); //или просто mistakeCount++
     printMistakeLetterMessage(letter);
   }
 }
@@ -658,7 +658,7 @@ Wraps an IOException with an unchecked exception.
 
 Подробное объяснение, как делать эту программу в процедурном и ООП стилях, есть у Сергея в расширенных материалах.
 
-В целом, для новичка не так уж и плохо 👍
+В целом, для новичка не так уж и плохо, видна творческая мысль 👍
 
 n.156(301)  
 #ревью #виселица 
