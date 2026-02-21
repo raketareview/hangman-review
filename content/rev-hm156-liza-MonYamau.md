@@ -491,6 +491,7 @@ private static boolean isGameOver() {
   }
   return false;
 }
+
 //ПРАВИЛЬНО:
 private static boolean isGameOver() {
   return isLose() || isWin();
@@ -531,13 +532,13 @@ private static void openLetter(char letter) {
 }
 ```
 
-Этот алгоритм можено сделать значительно проще:
+Этот алгоритм можно сделать значительно проще:
 ```java
 private static String secretWord;  //слово игры: "инкапсуляция"
 private static StringBuilder mask; //маска игры: "и-ка--ул-ци-"
 
 static StringBuilder mask = new StringBuilder("-----");
-private static void openLetter1(char letter) {
+private static void openLetter(char letter) {
   for (int i = 0; i < secretWord.length(); i++) {
     if (secretWord.charAt(i) == letter) {
       mask.setCharAt(i, letter);
@@ -626,7 +627,7 @@ Wraps an IOException with an unchecked exception.
 Но это замечание такое, на уровне требований к более опытному программисту- просто мне захотелось немного подушнить.  
 Я удивился, что ты выбрала именно `IllegalStateException`, а не более стандартный и универсальный(но все так же мало подходящий к ситуации) `IllegalArgumentException`, например.
 
-Кстати, лайфхак: если не знаешь, в каких случаях нужно бросать конкретное исключение,
+**Кстати, лайфхак:** если не знаешь, в каких случаях нужно бросать конкретное исключение,
 то переходи в код класса этого исключения(нажми на названии класса Ctrl + левая кнопка мышки).  
 И через переводчик читай описание класса в верхнем комментарии.
 
@@ -653,11 +654,11 @@ Wraps an IOException with an unchecked exception.
 Принцип хорошего кода KISS 
 ```
 
-Для развития навыков процедурной декомпозиции, посмотреть стрим Сергея [Крестики-нолики в процедурном стиле](https://www.youtube.com/watch?v=PPikj1qHxrA)
+Для развития навыков процедурной декомпозиции, посмотреть стрим Сергея [Крестики-нолики в процедурном стиле](https://www.youtube.com/watch?v=PPikj1qHxrA).
 
 Подробное объяснение, как делать эту программу в процедурном и ООП стилях, есть у Сергея в расширенных материалах.
 
-В целом, для новичка не так уж и плохо.
+В целом, для новичка не так уж и плохо 👍
 
 n.156(301)  
 #ревью #виселица 
