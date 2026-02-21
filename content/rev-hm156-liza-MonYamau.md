@@ -376,7 +376,7 @@ private static String createMask(String s) {
 |         ↓
 |   void startGameRound() 
 |         ↓
-+---private static boolean isGameOver() { ... processStartChoice();}
++-- boolean isGameOver() { ... processStartChoice();}
 ```
 
 Рекурсия должна использоваться только там, где она оптимальна алгоритмически.
