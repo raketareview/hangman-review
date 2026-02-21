@@ -348,7 +348,7 @@ boolean isNotSecretWordLetter(char letter) {
 }  
 
 //✔️ ЭТО ХОРОШО
-boolean isSecretWordLetter(boolean letter) {
+boolean isSecretWordLetter(char letter) {
   //проверяет на наличие буквы
 }
 ```
