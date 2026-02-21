@@ -50,29 +50,6 @@ List<String> dictionary;
 //ТАК ТОЖЕ ПРАВИЛЬНО:
 List<String> words;
 ```
-*Oracle Java code conventions, part."Naming conventions"*  
-*Мартин, "Чистый код", гл.2*  
-*Ютуб, Немчинский "Как называть переменные, методы и классы?"*
-
-**2. Нарушение DRY**, магические буквы, числа, слова. Вводи константы. А если они уже есть- пользуйся 
-```java
-private static final String START = "Н";
-private static final String EXIT = "В";
-private static final String INSTRUCTIONS_SCRIPT = """
-    Желаешь начать новую игру?
-    [Введите "Н", чтобы начать новую игру]
-    [Введите "В", чтобы выйти]
-    """;
-
-//ПРАВИЛЬНО:
-private static final String START = "Н";
-private static final String EXIT = "В";
-private static final String INSTRUCTIONS_SCRIPT = """
-    Желаешь начать новую игру?
-    [Введите '%s', чтобы начать новую игру]
-    [Введите '%s', чтобы выйти]
-    """.formatted(START, EXIT);
-```
 
 - Название не соответствует тому, что делает метод.  
 Этот метод получает от юзера одну большую русскую букву
@@ -96,7 +73,29 @@ private static void incrementMistakeCount(char letter) {
   mistakeCount++;
 }
 ```
+*Oracle Java code conventions, part."Naming conventions"*  
+*Мартин, "Чистый код", гл.2*  
+*Ютуб, Немчинский "Как называть переменные, методы и классы?"*
 
+**2. Нарушение DRY**, магические буквы, числа, слова. Вводи константы. А если они уже есть- пользуйся 
+```java
+private static final String START = "Н";
+private static final String EXIT = "В";
+private static final String INSTRUCTIONS_SCRIPT = """
+    Желаешь начать новую игру?
+    [Введите "Н", чтобы начать новую игру]
+    [Введите "В", чтобы выйти]
+    """;
+
+//ПРАВИЛЬНО:
+private static final String START = "Н";
+private static final String EXIT = "В";
+private static final String INSTRUCTIONS_SCRIPT = """
+    Желаешь начать новую игру?
+    [Введите '%s', чтобы начать новую игру]
+    [Введите '%s', чтобы выйти]
+    """.formatted(START, EXIT);
+```
 *Фаулер, "Рефакторинг", гл.8, "Замена магического числа символической константой"*  
 *refactoring.guru "Замена магического числа символьной константой"*    
 
