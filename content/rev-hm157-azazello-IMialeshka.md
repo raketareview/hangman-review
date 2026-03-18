@@ -237,7 +237,7 @@ public boolean isWin() {...}
 
 - Не используй венгерскую ноттацию.  
 Название переменной должно отвечать на вопрос что хранит переменная, а не как хранит.  
-Здесь венгерская ноттация обманывает, которая обманывает- это поле не List
+Здесь венгерская ноттация здесь обманывает- это поле не List
  ```java
  private StringBuilder doneMistakeList;
 
@@ -263,7 +263,7 @@ String answerForStart = inputScanner.nextLine();
 String command = inputScanner.nextLine();
 ```
 Да, она получена в результате ответа на вопрос, нужно ли стартануть игру.  
-Но суть ее- команда для выполнения действий
+Но суть ее- команда для выполнения действий.
 
 *Oracle Java code conventions, part."Naming conventions"*  
 *Мартин, "Чистый код", гл.2*  
@@ -281,7 +281,7 @@ if (answerForStart.equalsIgnoreCase("да")) {...}
 private final static String START = "ДА";
 private final static String QUIT = "НЕТ";
 
-System.out.println("Для начала игры введите '%s'. Для выхода введите '%s' %n", START, QUIT);
+System.out.printlf("Для начала игры введите '%s'. Для выхода введите '%s' %n", START, QUIT);
 String command = inputScanner.nextLine();
 
 if (isStartCommand(command)) {...}
