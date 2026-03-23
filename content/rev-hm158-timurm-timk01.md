@@ -415,7 +415,6 @@ public class View {
 В случае общего интерфейса, это будет примерно так:
 ```java
 public interface View {
-  //Только один метод- распечатка сообщения
   void printGreetings();
 
   void printWrongLetter(Char letter);
