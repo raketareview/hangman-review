@@ -1,6 +1,8 @@
 https://github.com/MaxotovArmat/Hangman  
 [Dom]
 
+[Ревью сделано в рамках учебной подписки](https://zhukovsd.it/services/student-subscription/)
+
 Игра в процедурном стиле. Выполнена в двух классах.
 
 ## НЕДОСТАТКИ РЕАЛИЗАЦИИ
