@@ -182,6 +182,7 @@ usedLetters.add(inputLetter.charAt(0));
 
 //ПРАВИЛЬНО:
 char letter = inputLetter.charAt(0);
+
 if (letter == word.charAt(i)) {
   sb.setCharAt(i, letter);
   //...
@@ -206,7 +207,7 @@ private boolean isНазваниеКотороеВсеОбъясняет(...) {
 
 **10. Большие методы и правило одной операции**
 
-Каждый метод должен выполнять только одну операцию на рдном уровне абстракции.  
+Каждый метод должен выполнять только одну операцию на одном уровне абстракции.  
 Этот метод делает много разного на одном уровне абстракции
 ```java
 public static void startGameLoop(Scanner scanner)
@@ -243,6 +244,7 @@ private static String word;
 public static void startGameLoop(Scanner scanner) {
   //миллион строк кода
   char letter = inputLetter.charAt(0);
+
   if(isWordLetter(letter)) {
     openLetter(letter);
     //другие действия если буква есть в лове 
@@ -413,6 +415,8 @@ public String getRandomWord() {
 ```
 
 ## ВЫВОД
+
+Сделать чтение слов из файла.
 
 В процедурном стиле программирования нужно научиться делать маленькие методы, 
 каждый из которых будет делать только одно дело.
