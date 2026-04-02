@@ -113,7 +113,7 @@ if (choice == QUIT) {...}
 
 **4. Не делай переводы строк в println**
 
-Если нуно распечатать несколько строк, печатай их или многострочными строками или отдельными инструкциями построчной печати
+Если нужно распечатать несколько строк, печатай их или многострочными строками или отдельными инструкциями построчной печати
 ```java
 System.out.println("The word was: " + word + "\n" + "\n");
 
@@ -177,21 +177,16 @@ if (inputLetter.charAt(0) == word.charAt(i)) {
   sb.setCharAt(i, inputLetter.charAt(0));
   //...
 }
-
 if (!containsLetter && !usedLetters.contains(inputLetter.charAt(0))) {...}
-
 usedLetters.add(inputLetter.charAt(0));
 
 //ПРАВИЛЬНО:
 char letter = inputLetter.charAt(0);
-
 if (letter == word.charAt(i)) {
   sb.setCharAt(i, letter);
   //...
 }
-
 if (!containsLetter && !usedLetters.contains(letter)) {...}
-
 usedLetters.add(letter);
 ```
 *Фаулер, "Рефакторинг", гл.6, "Введение поясняющей переменной"*
