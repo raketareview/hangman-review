@@ -165,7 +165,7 @@ System.out.println("WANNA PLAY WITH ME?");
 System.out.println(" 1 - YES    0 - NO ");
 ```
 
-- Не иммеет смысла использовать только одну инструкцию печати, когда все равно печать занимает несколько горизонталей
+- Не имеет смысла использовать только одну инструкцию печати, когда все равно печать занимает несколько горизонталей
 ```java
 System.out.println("oops MISTAKE!\n" +
         "used letters: " + USED_LETTERS + "\n" +
@@ -288,7 +288,7 @@ if (USED_LETTERS.contains(userGuess)) {
 }
 
 //ПРАВИЛЬНО:
-if (isUsedLetters(userGuess)) {
+if (isUsedLetter(userGuess)) {
   //...
 } else if (!isEnglishLetter(userGuess)) {
   //...
