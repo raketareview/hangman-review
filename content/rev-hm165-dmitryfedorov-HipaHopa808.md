@@ -197,7 +197,8 @@ boolean startMainMenu() {
    //...  
     if (userChoice == START) {
       return true;
-    } else if (userChoice == QUIT) {
+    } 
+    if (userChoice == QUIT) {
       return false;
     } 
     return false;
