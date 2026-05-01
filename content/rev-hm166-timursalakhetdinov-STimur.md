@@ -345,7 +345,7 @@ while (!matcher.matches()) {...}
 ```java
 new GameController(input, gameView, wordSupplier).run();
 
-//ПРАВИЛЬНО;
+//ПРАВИЛЬНО:
 GameController gameController = new GameController(input, gameView, wordSupplier);
 gameController.run();
 ```
