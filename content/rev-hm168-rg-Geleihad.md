@@ -226,8 +226,9 @@ private static boolean isInputOk(String input) {
 *Блох "Java. Эффективное программирование", изд.3, гл.2.6*
 
 - Регулярное выражение "^[А-Яа-яЁё]$" уже проверяет, состоит ли строка из одного символа.  
-Поэтому проверка на длину строки избыточна:
+Поэтому проверка на длину строки избыточна
 ```java
+//ПРАВИЛЬНО:
 private static final String REGEX = "^[А-Яа-яЁё]$";
 private static final Pattern PATTERN = Pattern.compile(REGEX);
 
@@ -275,14 +276,14 @@ public class HangmanRenderer {
 
 **7. Создавай вспомогательные методы, делай программу более простой и понятной**
 ```java
-while ((numOfWrongLetters < MAX_MISTAKES) && (state.indexOf("*") != -1)) {
+while ((numOfWrongLetters < MAX_MISTAKES) && (state.indexOf("*") != -1)) {...}
  
 if (numOfWrongLetters < MAX_MISTAKES)
   System.out.println("Победа! Загаданное слово было: " + wordToGuess + "\n");
     else System.out.println("Поражение! Загаданное слово было: " + wordToGuess + "\n");
 
 //ПРАВИЛЬНО:
-while (!isGameOver()) {
+while (!isGameOver()) {...}
  
 if (isWin()) {
   System.out.println("Победа! Загаданное слово было: " + wordToGuess + "\n");
