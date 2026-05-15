@@ -266,7 +266,7 @@ public class HangmanRenderer {
   };
 
   public static void render(int pictureNumber) {
-    picture = PICTURES[pictureNumber];  
+    String picture = PICTURES[pictureNumber];  
     System.out.println(picture);
   }
 }
