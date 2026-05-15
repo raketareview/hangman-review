@@ -1,4 +1,4 @@
-https://github.com/rasulovtolib/hangman.git  
+https://github.com/rasulovtolib/hangman  
 [Толиб Росулов]
 
 Игра в процедурном стиле, выполнена в двух классах.
