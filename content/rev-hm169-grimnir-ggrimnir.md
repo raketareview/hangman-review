@@ -90,7 +90,7 @@ public class MaskHandler {
     extractLettersIndexes(word);
   }
 
-  public StringBuilder initMask(Word word) {
+  public void initMask(Word word) {
     this.mask = new StringBuilder("*".repeat(word.getLength()));
   }
 }
@@ -170,11 +170,11 @@ public void printStatistic(int count, int max) {
 Если есть актуальная маска, то есть и неактуальная?(Нет)  
 Почему `maskHandler` это просто `maskHandler`, а не `actualMaskHandler`?
 ```java
-private final MaskHandler MaskHandler;
+private final MaskHandler maskHandler;
 private StringBuilder actualMask;
 
 //ПРАВИЛЬНО:
-private final MaskHandler MaskHandler;
+private final MaskHandler maskHandler;
 private StringBuilder mask;
 ```
 
@@ -642,11 +642,8 @@ public class GameProcess {
   private void showReplayRequest() {
     Console.Command command = console.inputCommand();
     switch (command) {
-      case START -> {
-        game = new Game();
-        startNewGame();
-      }
-      case QUIT -> console.exit();
+      case START -> //действия: старт игры
+      case QUIT -> //действия: выход из игры
     }
   }
 }
@@ -879,7 +876,7 @@ public String toString() {
 
 **8. class MaskHandler**
 
-- Названия типа "Handler", "Manager", "Helper" etc.
+- Названия типа "Handler", "Manager", "Helper" и т.д.  
 
 **Лайфхак:**  
 Если класс называется "Handler", "Manager", "Helper", то скорее всего, с ним что-то не так.  
@@ -945,7 +942,7 @@ public void extractLettersIndexes(Word word) {
 }
 ```
 
-И кончая открытием букв в маске
+...и кончая открытием букв в маске:
 ```java
 public StringBuilder openLettersInTheMask(char letter) {
   List<Integer> indexes = lettersIndexes.getOrDefault(letter, Collections.emptyList());
@@ -961,8 +958,8 @@ public StringBuilder openLettersInTheMask(char letter) {
 
 - Побочный эффект. 
 
-Нельзя в методе устанавливать поле класса и возвращать эти же данные через return. 
-В этом случае инициализация поля класса будет происходить неявно для клиентского кода. 
+Нельзя в методе устанавливать поле класса и возвращать эти же данные через return.  
+В этом случае инициализация поля класса будет происходить неявно для клиентского кода.  
 То есть, это будет побочный эффект
 ```java
 private final StringBuilder mask;  <-- ПОЛЕ КЛАССА
@@ -1047,9 +1044,9 @@ public class Game {
 Это называется "MVC с активной моделью".  
 Но в этом проекте модели пассивные.
 
-Избавить`Game` зависиморсти от представления можно так:
+Избавить`Game` от зависимости от представления можно так:
 ```java
-public class GameProcess {
+public class GameProcess {  <-- ЭТО КОНТРОЛЛЕР
   //...
 
   private void showInfoForInvalidGuess() {
@@ -1058,7 +1055,7 @@ public class GameProcess {
   }
 }
 
-public class Console {
+public class Console {  <-- ЭТО ПРЕДСТАВЛЕНИЕ
   //...
 
   public void printHangmanStage(String stage) {
@@ -1066,7 +1063,7 @@ public class Console {
   }
 }
 
-public class Game {
+public class Game {  <-- ЭТО МОДЕЛЬ
   //...
 
   public String getHangmanStage() {
@@ -1075,17 +1072,17 @@ public class Game {
 }
 
 //ПРАВИЛЬНО:
-public class GameProcess {
+public class GameProcess {  <-- ЭТО КОНТРОЛЛЕР
   //...
 
   private void showInfoForInvalidGuess() {
-    int mistakesCount = game.getMistakesCount();
+    int mistakesCount = game.getMistakesCount();  <-- ИЗ МОДЕЛИ ПОЛУЧАЕТ ТОЛЬКО ДАННЫЕ, А НЕ ИХ ПРЕДСТАВЛЕНИЕ
     console.printHangmanStage(mistakesCount);
     //...
   }
 }
 
-public class Console {
+public class Console {  <-- ЭТО ПРЕДСТАВЛЕНИЕ
   //...
 
   public void printHangmanStage(int mistakesCount) {
@@ -1100,7 +1097,7 @@ public class Console {
 
 Но нужно ли модели `Game` для этих визуальных сред хранить в себе зависимость от псевдографики класса `HangmanAsciiArt`?  
 Очевидно, что нет.  
-Скорее всего, там мы будем виселицу показывать пиксельными картинками, а не убогой псевдографикой ASCII.
+Скорее всего, там мы будем виселицу показывать пиксельными картинками, а не псевдографикой ASCII.
 
 **10. Пакет util**
 
@@ -1600,10 +1597,11 @@ public class ArcadeMachineMain {
 
 ## ВЫВОД
 
-исключения вместо if-else
-Это не mvc и не ооп, это основы процедурное программирование.
+Неправильное программирование на уровне основ: 
+использование исключений вместо условных операторов if-else для ветвлений бизнес логики.
 
-Спагетти код
+Классно, что написал архитектуру MVC 🚀  
+Но за формой MVC ты не вполне понимаешь её содержание.
 
 n.169(328)  
 #ревью #виселица #оопвиселица #mvc #архитектура 
