@@ -190,7 +190,7 @@ public final class GallowsGraphics {
 Команда: произвести некие действия.  
 Запрос: сказать, что произошло в результате произведенных действий
 ```java
-public String getHiddenWord() {
+public boolean guessLetter(char letter) {
   //Открывает букву в слове- команда
   //Сообщает, была ли открыта буква в слове- запрос  
 }
