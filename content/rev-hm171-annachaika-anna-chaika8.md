@@ -88,10 +88,10 @@ public class Game {
 Это только делает названия более громоздкими.  
 Если конечно там "Of" не используется в контексте valueOf()
 ```java
-boolean letterInWord = isLetterInWord(inputLetter, oneWord);
+boolean isLetterInWord(char letter, String word) 
 
 //ПРАВИЛЬНО:
-boolean isWordLetter = isWordLetter(inputLetter, oneWord);
+boolean isWordLetter(char letter, String word) 
 ```
 
 - Вводящее в заблуждение название
