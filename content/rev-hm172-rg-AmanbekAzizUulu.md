@@ -349,7 +349,8 @@ class HangmanConsoleRenderer
 - Зависимость модели от представления.
 
 Модель, а движок должен быть моделью, должна работать с данными, которые не зависят от представления.  
-Вот здесь модель зависит от представления- движок  озабочен не данными, а то, как эти данные будут показываться юзеру
+Вот здесь модель зависит от представления- движок  озабочен не только данными.  
+А и тем, как эти данные будут показываться юзеру
 ```java
 public GuessResult guess(String word, Set<Character> guessed, char guess) {
   GuessResult result = new GuessResult();
@@ -360,8 +361,9 @@ public GuessResult guess(String word, Set<Character> guessed, char guess) {
 ```
 
 Движок должен вернуть результат совершения хода(угадал/не угадал/повторный ввод).  
-А как этот результат будет показываться юзеру, это ответственность слоёв `Controller` и `View`.  
-В идеале движок вообще не должен знать, в какой  визуальной среде он используется- консоль, Windows UI, Android или вообще аркадный автомат  
+А как этот результат будет показываться юзеру, это ответственность слоёв `Controller` и `View`.
+
+В идеале движок вообще не должен знать, в какой  визуальной среде он используется- консоль, Windows UI, Android или даже аркадный автомат  
 ![pic](https://github.com/raketareview/hangman-review/blob/master/content/resources/rev-hm172/arcade_machine_hangman.png) 
 
 И даже на каком языке он будет использоваться: на английском("Letter already guessed") или русском("Буква уже была введена")
@@ -406,8 +408,8 @@ public GuessResult guess(String word, Set<Character> guessed, char letter) {
 
 - Данные, которые должен хранить движок.
 
-Движок должен хранить все данные, которые касаются логики выполнения хода, которые не зависят от представления.  
-Как минимум- слово и использованные/отгаданные буквы, маска слова(слово с открытыми и закрытыми буквами), текущие ошибки
+Движок должен хранить все данные, которые касаются логики выполнения хода и которые не зависят от представления.  
+Как минимум: слово и использованные/отгаданные буквы, маска слова(слово с открытыми и закрытыми буквами), счетчик ошибок
 ```java
 public final class GameEngine {
   public GuessResult guess(String word, Set<Character> guessed, char guess) {...}
@@ -417,7 +419,7 @@ public final class GameEngine {
 public final class GameEngine {
   private final Word word;
   private final List<Character> usedLetters;
-  private int mistakeCounter;
+  private int mistakeCount;
   //...
 
   public GameEngine(Word word) {...}
@@ -431,8 +433,8 @@ public final class GameEngine {
 
 Да, но как разобраться в том, что именно должен хранить движок, а что именно должен хранить контроллер?
 
-Очень просто:  
-Движок это модель и он должен хранить максимум логики и данных, которые нужны для выполнения логики игры и которые при этом НЕ ЗАВИСИТ от представления.  
+**Очень просто:**  
+Движок это модель и он должен хранить максимум логики и данных, которые нужны для выполнения логики игры и которые при этом НЕ ЗАВИСЯТ от представления.  
 
 Слово и список использованных букв это чистые данные, они не зависят от представления.  
 И в игре на андроид, и в игре на аркадном автомате, эти данные будут одинаковы.  
@@ -453,7 +455,7 @@ public final class GameEngine {
 
 **Контроллеры должны быть тонкими.**
 
-Вся логика, которая в них работает с чистыми данными и не зависит от представления, должна быть вынесена в модель-движок.
+Вся логика, которая в них работает с чистыми данными и не зависит от представления, должна быть вынесена в модель-движок.  
 Та логика игры, которая ЗАВИСИТ ОТ ПРЕДСТАВЛЕНИЯ, должна находиться в контроллере.
 
 Например, модель-движок должен внутри себя увеличивать счетчик ошибок.  
@@ -462,7 +464,7 @@ public final class GameEngine {
 Счетчик ошибок здесь это "чистые данные", они должны находиться в модели.  
 Картинка повешенного человечка- представление этих данных, распечатывать их должен контроллер через вью.
 
-Ответственности у контроллеров `Game` и `GameRound` частично перепутаны.
+Ещё у контроллеров `Game` и `GameRound` частично перепутаны ответственности.
 
 `GameRound` должен выполнять всю логику контроллера для одного раунда игры.   
 `Game` должен запускать контроллер раунда и вести с юзером диалог "Играть или выйти?".  
@@ -472,7 +474,7 @@ public final class GameEngine {
 
 Контроллер, который работает с движком и выполняет один раунд игры. 
 
-- Этот класс должен получать в себя движок и представление  
+- Этот класс должен получать в себя движок и представление.  
 Примерно так
 ```java
 public class GameRound {
@@ -525,7 +527,7 @@ var word = wordProvider.getRandom(settings.category(), settings.difficulty()).or
 - Распределение ответственностей между движком и его контроллером. 
 
 Определение того, что игра находится в состоянии выиграл/проиграл это логика, которая не зависит от представления.  
-Поэтому она должна находиться в контроллере, а не в его движке
+Поэтому она должна находиться в движке, а не в его контроллере
 ```java
 while (true) {
   //...
@@ -602,7 +604,7 @@ if (isNewWrong) {
 - Прием аргументов в конструктор.
 
 Согласно паттерна GRASP "Creator", создавать объект должен тот, кто его использует.  
-Поэтому Контроллер контроллера движка должен создавать для своего использования экземпляр Контроллера движка
+Поэтому Контроллер контроллера движка должен создавать для своего использования не только экземпляр Контроллера движка, но и экземпляр самого Движка
 
 ```java
 public final class Game {
@@ -624,9 +626,11 @@ public final class Game {
   public void start() {
     //диалог "играть или выйти"
     //если выбрали играть- создаем движок и играем
-    Word word = wordProvider.get();
+    Word word = //получить из wordProvider
+
     GameEngine engine = new GameEngine(word);
     GameRound round = new GameRound(engine, consoleUI);
+
     round.start(); 
     //...
   }
@@ -640,7 +644,7 @@ var word = wordProvider.getRandom(settings.category(), settings.difficulty()).or
 
 Код должен читаться легко, как книга.  
 Для этого вместо того, чтобы совмещать много инструкций в одну, пиши каждую инструкцию в отдельной строке- при необходимости, вводи поясняющие переменные.  
-Совмещать не больше 2-3 инструкций в одну строку можно, только когда это легко читается.  
+Совмещать не больше 2-3 инструкций в одну строку можно только когда это легко читается.  
 Например условный пример:
 ```java
 //ОДНА ИНСТРУКЦИЯ В ОДНОЙ СТРОКЕ, НО ТАК ХУЖЕ:
@@ -651,7 +655,7 @@ return word;
 return dictionary.get();
 ```
 
-**### Пакет utils**
+### Пакет utils
 
 В этом пакете нет утилит.  
 Утилитными являются классы, которые содержат только статические методы и не содержат изменяемых полей. 
@@ -711,13 +715,13 @@ w.setDifficulty(Difficulty.valueOf(parts[3].trim().toUpperCase()));
 return w;
 
 //ПРАВИЛЬНО:
-String text = getParameter(parts, TEXT_POS, LOWER_CASE);
-String hint = getParameter(parts, HINT_POS, LOWER_CASE);
+String text = getParameter(parts, TEXT_POSITION, LOWER_CASE);
+String hint = getParameter(parts, HINT_POSITION, LOWER_CASE);
 
-String categoryName = getParameter(parts, CATEGORY_POS, UPPER_CASE); 
+String categoryName = getParameter(parts, CATEGORY_POSITION, UPPER_CASE); 
 Category category = Category.valueOf(categoryName);
 
-String difficultyName = getParameter(parts, DIFFICULTY_POS, UPPER_CASE);
+String difficultyName = getParameter(parts, DIFFICULTY_POSITION, UPPER_CASE);
 Difficulty difficulty= Difficulty.valueOf(difficultyName);
 
 var word = new Word();
@@ -742,14 +746,16 @@ return new Word(text, hint, category, difficulty);
 
 + 👍 Вью, через который происходит вся распечатка. Слой преставления(вью) это хорошо.
 
-- не надо сюда передавать сканер 
+- Не надо сюда передавать сканер 
 ```java
 public boolean askPlayAgain(Scanner scanner) {...}
 
 //ПРАВИЛЬНО:
 public boolean askPlayAgain() {...}
 ```
-Сканер это подробность внутреннего устройства вью.  
+
+Сканер это подробность внутреннего устройства вью.
+
 Поэтому сканер нужно создавать внутри самого `ConsoleUI`.  
 И даже не нужно передавать `Scanner` в конструктор `ConsoleUI`. 
 
@@ -764,30 +770,28 @@ public boolean askPlayAgain(Scanner scanner) {
 
 //ПРАВИЛЬНО:
 private static final String START =  "yes";
-private static final String QUIT =  "no"; 
+private static final String SHORT_START =  "y";
+
+private static final String QUIT =  "no";
+private static final String SHORT_QUIT =  "n"; 
 
 public boolean askPlayAgain() {
   while(true) {
-    out.printf("Play again? (%c/%c): ", formatted(START.charAt(0), QUIT.charAt(0)); 
-    var input = scanner.nextLine().trim().toLowerCase();
+    out.printf("Play again? (%s/%s): ", SHORT_START, SHORT_QUIT); 
+    var command = scanner.nextLine().trim().toLowerCase();
   
-    if(isStartCommand(input))) {
+    if(isStart(command))) {
       return true;
     }
-    if(isQuitCommand(input))) {
+    if(isQuit(command))) {
       return false;
     }
     //распечатать сообщение ввели некорректную команду
   }
 }
 
-private boolean isStartCommand(String value) {
-  return isCommand(START, value);
-}
-
-private boolean isCommand(String command, String value) {
-  String shortCommand = String.valueOf(command.charAt(0));  
-  return command.equals(value) || shortCommand.equals(value);
+private boolean isStart(String command) {
+  return command.equals(SHORT_START) || command.equals(START)
 }
 ```
 *Фаулер, "Рефакторинг", гл.8, "Замена магического числа символической константой"*  
@@ -800,7 +804,7 @@ private boolean isCommand(String command, String value) {
 public Category categorySelection(Scanner scanner) 
 public Difficulty difficultySelection(Scanner scanner)
 ```
-Общий код нужно вынести во вспомогательный метод.
+Общий код вынеси во вспомогательный метод.
 
 + 👍 В целом, как вью, класс норм.  
 Он делает только простой ввод/вывод информации и не содержит общую игровую логику.
@@ -832,15 +836,15 @@ game.start();
 
 Контроллер движка, который связывает движок с представлением, должен быть тонким и содержать только ту логику, которая зависит от представления.  
 
-Такой контроллер должен быть сделан таким образом, чтобы его можно было использовать напрямую.  
-В простейшем виде примерно вот так:
+Такой контроллер должен быть сделан таким образом, чтобы его можно было использовать напрямую без *Контроллера контроллера*.  
+То есть в простейшем виде примерно вот так:
 ```java
 public class MainTest {
 
   public static void main(String[] args) {
 
     ConsoleUI ui = new ConsoleUI(...);
-    Word word = new Word("Астролябия", ...);
+    Word word = new Word("тест", ...);
 
     GameEngine engine = new GameEngine(word);
 
@@ -849,6 +853,7 @@ public class MainTest {
   }
 }
 ```
+В этом примере произойдет игра с угадыванием одного слова, после чего программа прекратит свою работу.
 
 При добавлении словаря, использоваться контроллер движка должен примерно так
 ```java
@@ -912,19 +917,20 @@ public class Game {
 
 ## ВЫВОД
 
-Внезапно мало используешь конструкторы, отдавая предпочтения сеттерам. 
-Хотя оснований для такого подхода в коде не видно. 
+Внезапно мало используешь конструкторы, отдавая предпочтения сеттерам.  
+Хотя в коде не видно оснований для такого подхода. 
 
 Более осознанно пиши архитектуру MVC.  
 Думай о том, к какому слою принадлежит каждый класс и какие обязательства это на него накладывает.  
-Не должно быть смешивания слоёв в одном классе. В частности, модели не должны зависеть от представления.  
+Не должно быть смешивания слоёв в одном классе.  
+В частности, модели не должны зависеть от представления.  
 Контроллеры должны быть тонкими.
 
 Непонятно, насколько осознанно ты пишешь MVC, потому что не могу понять мотивацию некоторых твоих решений.    
 Пишешь ли так, потому что изучал концепцию MVC.  
 Или просто пишешь типа как в Спринг, но в коре.
 
-Если последнее- больше почитай теории об ответственностях слоёв MVC и различиях анемической и богатой моделей. 
+Если последнее- больше почитай теории об ответственностях слоёв MVC и различиях между анемической и богатой моделями. 
 
 В целом норм.
 
