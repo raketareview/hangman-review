@@ -383,6 +383,20 @@ public class Word {
 }
 ```
 
+Тогда не придется в названиях постоянно уточнять, что имеется ввиду:
+```java
+public class Judge {
+  //...
+  private char chooseRandomLetterFromWord() {...}
+}
+
+//ПРАВИЛЬНО:
+public class Word {
+  //...
+  private char chooseRandomLetter() {...}
+}
+```
+
 - Не используй сеттеры для НАЧАЛЬНОЙ инициализации значений, используй конструктор:
 ```java
 public class Judge {
@@ -407,21 +421,6 @@ public class Word {
   }
   //...
 }
-```
-
-Тогда не придется в названиях постоянно уточнять, что имеется ввиду:
-```java
-public class Judge {
-  //...
-  private char chooseRandomLetterFromWord() {...}
-}
-
-//ПРАВИЛЬНО:
-public class Word {
-  //...
-  private char chooseRandomLetter() {...}
-}
-
 ```
 
 - Не храни поле, если оно дублирует данные, которые можно получить через вызов метода
