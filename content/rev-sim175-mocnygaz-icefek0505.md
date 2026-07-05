@@ -208,9 +208,10 @@ public class Player implements Resetable {
 public class Player implements Resetable {
   private static final char FIRST_RUSSIAN_LETTER = 'а';
   private static final char LAST_RUSSIAN_LETTER = 'я';
+  private static final char SPECIAL_LETTER = 'ё';
 
   private boolean isCyrillic(char letter) {
-    return letter >= FIRST_RUSSIAN_LETTER && letter <= LAST_RUSSIAN_LETTER || letter == 'ё';
+    return letter >= FIRST_RUSSIAN_LETTER && letter <= LAST_RUSSIAN_LETTER || letter == SPECIAL_LETTER;
   }
 }
 ```
@@ -493,7 +494,7 @@ Random random = new Random();
 return originalWord.charAt(random.nextInt(wordLength));
 ```
 
-- Нарушение DRY. Дублирование кода в классах
+- Нарушение DRY. Дублирование кода в методах
 ```java
 public void openRandomLetter() {
   char randomLetterFromWord = chooseRandomLetterFromWord();
@@ -905,8 +906,8 @@ public class SecondMain {
         Game game = new Game(word);
         game.start();
       }   
+      //...
     }
-    //...
   }
 
   private static String inputCommand() {
@@ -926,7 +927,7 @@ public class SecondMain {
 
 Обсуждать его не имеет смысла- он абсолютно ужасен, код нечитаем.
 
-Метод нужно разделить на несколько, которые будут соответствовать этим критериям:  
+Метод нужно разделить на несколько, которые будут соответствовать этим критериям:  -
 🔹 Маленький размер  
 🔹 Выполняют одну операцию на одном уровне абстракции  
 🔹 Не совмещают команду и запрос  
