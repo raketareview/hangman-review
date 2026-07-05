@@ -515,7 +515,7 @@ public void openLetter(char letter) {...}
 
 - В классе не хватает методов.
 
-Тут нужно еще:
+Тут нужно еще:  
 🔸Геттер `originalWord`  
 🔸Метод, который определяет, что слово полностью открыто
 
@@ -551,6 +551,7 @@ public interface Resetable {
 
 В однопользовательских играх Игрок может существовать, если нужно хранить его персональные данные, необходимые для процесса игры. 
 Например, количество денег при игре в казино.
+
 Что касается хангмана, то в одном из прошлых проектов был класс `Player` и он там был оправдан, 
 потому что в нем только считалась статистика выигрышей/проигрышей игрока: https://t.me/zhukovsd_it_chat/118068
 
@@ -639,7 +640,6 @@ public static void main(String[] args){
 public abstract class WordsExtracter {
   //... 
   public static String[] getExtracted() {...}
-
   private static String[] extract() {...}
 }
 
@@ -649,7 +649,6 @@ public final class WordsExtracter {
   private WordsExtracter() {}
      
   public static String[] getExtracted() {...}
-
   private static String[] extract() {...}
 }
 ```
@@ -779,8 +778,8 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0 out
 Здесь должна быть другая реакция на отсутствие файла со словами.  
 Нужно сказать юзеру, что файл со словами по указанному пути открыть не удалось и поэтому работа программы будет завершена. 
 
-Причем, путь нужно указать не относительный, как у тебя: `src\main\resources\Nouns.txt1`.  
-А абсолютный, чтобы юзер знал, где конкретно ему нужно искать файл: `c:/..../Nouns.txt1`.
+Причем, путь нужно указать не относительный, как у тебя: `src\main\resources\Nouns.txt`.  
+А абсолютный, чтобы юзер знал, где конкретно ему нужно искать файл: `c:/..../Nouns.txt`.
 
 После этого корректно завершить работу программы.
 
@@ -788,7 +787,7 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0 out
 
 + 👍 Отдельный класс для распечатки сообщений это хорошо. Что-то типа view.
 
-**11. Печать картинки виселицы** через switch-case или if-elseif - индусский код. (1)
+**11. Печать картинки виселицы** через switch-case или if-elseif - индусский код.
 
 Картинки нужно хранить в статическом массиве и печатать по номеру, например, так
 ```java
@@ -813,7 +812,7 @@ private static final String[] PICTURES = {
     // more pics
   };
 
-public static void drawHangman(int pictureNumber) {
+public void drawHangman(int pictureNumber) {
     String picture = PICTURES[pictureNumber];  
     System.out.println(picture);
 }
@@ -827,7 +826,7 @@ public static void drawHangman(int pictureNumber) {
 System.out.println("=    you have " + (5 - mistakes) + " lives left    =");
 
 //ПРАВИЛЬНО:
-System.out.printf(""=    you have %d lives left    =   %n", (5 - mistakes));
+System.out.printf(""=    you have %d lives left    =   %n", 5 - mistakes);
 ```
 
 - При распечатке все тексты вписываются в рамку
@@ -901,7 +900,7 @@ public class SecondMain {
 
       if(isStart(command)) {
         String text = dictionary.get();
-        Game game = new Game(text); 
+        Word word = new Word(text);
 
         Game game = new Game(word);
         game.start();
@@ -925,14 +924,15 @@ public class SecondMain {
 
 - Большой божественный метод `void main() `на 70 строк.
 
-Обсуждать его не имеет смысла- он абсолютно ужасен.  
-Здесь тебя как будто подменили, этот код нечитаем.
+Обсуждать его не имеет смысла- он абсолютно ужасен, код нечитаем.
 
-Метод нужно разделить на несколько, которые будут соответствовать этим критериям:
+Метод нужно разделить на несколько, которые будут соответствовать этим критериям:  
 🔹 Маленький размер  
 🔹 Выполняют одну операцию на одном уровне абстракции  
 🔹 Не совмещают команду и запрос  
-🔹 Не содержат больше трех уровней вложенности
+🔹 Не содержат больше трех уровней вложенности  
+
+Подробнее про методы: 3 глава "ЧК" и ролик Немчинского "Правильные методы по Clean Code" на ютубе.
 
 ## ВЫВОД
 
