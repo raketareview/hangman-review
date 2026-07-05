@@ -121,6 +121,21 @@ YOU HAVE ALREADY ENTER:
 
 **1. Нейминг**
 
+- Старайся придерживаться стандартных названий методов
+```java
+public class Judge {
+  //...  
+  public boolean isLetterInWord(char letter) {...}
+}
+
+//ПРАВИЛЬНО:
+public class Judge {
+  //...  
+  public boolean contains(char letter) {...}
+}
+```
+По аналогии с одноименным методом в `String`, `List` etc. 
+
 - Давай названия по делу.
 
 Класс "Судья"? Поэтично, но бессмысленно
@@ -144,21 +159,6 @@ public void openLetter(char letter)
 
 public void openRandomLetter() 
 ```
-
-- Старайся придерживаться стандартных названий
-```java
-public class Judge {
-  //...  
-  public boolean isLetterInWord(char letter) {...}
-}
-
-//ПРАВИЛЬНО:
-public class Judge {
-  //...  
-  public boolean contains(char letter) {...}
-}
-```
-По аналогии с одноименным методом в `String`, `List` etc. 
 
 - Чем меньше область видимости переменной, тем короче делай названия.  
 
