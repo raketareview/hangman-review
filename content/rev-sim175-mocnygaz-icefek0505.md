@@ -426,7 +426,7 @@ public class Word {
 - Не храни поле, если оно дублирует данные, которые можно получить через вызов метода
 ```java
 public class Judge {
-  private String originalWord;
+  private int wordLength;
   //...
 
   public void updateMaskedWord(char letter) {
