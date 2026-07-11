@@ -225,9 +225,8 @@ if (nextGameAnswer.equals(QUIT)) {...}
 
 - Нарушение конвенции кода.
 
-Конструктор должен стоять выше всех остальных методов. 
-Сейчас он стоит самым последним.  
-Никогда так не делай- это оч. бесит.
+Конструктор должен стоять выше всех остальных методов.  
+Сейчас он стоит самым последним. Никогда так не делай- это оч. бесит.
 
 - В любом switch-case должен быть default.  
 В данном случае default должен бросать исключение с сообщением, что такого номера картинки не существует.
@@ -296,7 +295,6 @@ public class CheckInput {
   }
 
   public boolean checkKeyboardInput(String input) {...}
-  }
 }
 
 //ПРАВИЛЬНО, класс с конструктором по умолчанию:
@@ -304,7 +302,6 @@ public class CheckInput {
   private List<Character> used = new ArrayList<>();
 
   public boolean checkKeyboardInput(String input) {...}
-  }
 }
 ```
 В этом случае будет работать конструктор по умолчанию, который идентичен пустому конструктору.
@@ -358,7 +355,7 @@ public boolean checkKeyboardInput(String input) {
 Например:
 ```java
 public class SomeName {
-  private List<Character> usedLetters = new ArrayList<>();
+  private final List<Character> usedLetters = new ArrayList<>();
 
   public char inputRusLetter() {
     Scanner scanner = new Scanner(System.in);
