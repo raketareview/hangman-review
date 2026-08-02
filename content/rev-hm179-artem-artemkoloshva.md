@@ -637,7 +637,7 @@ public class FirstMain {
   //Тестовая конфигурация: один игровой раунд с жестко прописанным словом для тестирования  
   public static void main(String[] args) {
     Game game = new Game("Тест");
-    GameController controller = new Controller(game);
+    GameController controller = new GameController(game);
     controller.start();
   }
 }
@@ -650,7 +650,7 @@ public class SecondMain {
     String word =  dictionary.getRandom();
     Game game = new Game(word);
 
-    GameController controller = new Controller(game);
+    GameController controller = new GameController(game);
     controller.start();
   }
 }
@@ -680,7 +680,7 @@ public class ThirdMain {
     String word =  dictionary.getRandom();
     Game game = new Game(word);
 
-    GameController controller = new Controller(game);
+    GameController controller = new GameController(game);
     controller.start();
   }
 }
