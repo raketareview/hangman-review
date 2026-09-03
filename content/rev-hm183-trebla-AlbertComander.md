@@ -348,7 +348,7 @@ private int inputCommand() {
   }
 }
 
-private static isNumber(String s) {
+private static boolean isNumber(String s) {
   try {
     Integer.parseInt(s);
     return true;
@@ -515,7 +515,7 @@ public void startGame() {
 Пример хороших методов в проекте: `chooseWord(...)`, `showLetter(...)`.  
 Пример плохих методов: в той или иной степени все остальные, но особенно `startGame()`, `validateOption(...)`.
 
-Посмотри на ютубе ролики Немчинского по базе распределения кода между методами:
+Посмотри на ютубе ролики Немчинского по распределению кода между методами:
 ```
 "Правильные методы по Clean Code"
 "Как называть переменные, методы и классы? Чистый код (Clean Code)"
