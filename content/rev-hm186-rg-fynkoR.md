@@ -283,7 +283,6 @@ public static ArrayList<String> fileToArray(String fileName) {
 public static ArrayList<String> fileToArray(String fileName) {
   List<String> words = new ArrayList<>();
   try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-    array = new ArrayList<>();
     //...
   } catch (IOException ex) {
     System.out.println(ex.getMessage());
