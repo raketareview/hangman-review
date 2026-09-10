@@ -430,7 +430,7 @@ public static void doGame(String word, Scanner in, List<List<String>> array) {
 private static String word;
 private static StringBuilder mask;
 
-public static void doGame(String word, Scanner in, List<List<String>> array) {
+public static void doGame(...) {
   //куча кода
 
   if(isWordLetter(letter)) {
