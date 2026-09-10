@@ -388,7 +388,7 @@ private static boolean isGameOver() {
 }
 
 private static boolean isWin() {
-  return word.equals(maskBuilder.toString());    
+  return word.equals(mask.toString());    
 }
 
 private static boolean isLose() {...}
@@ -423,7 +423,7 @@ public static void doGame(String word, Scanner in, List<List<String>> array) {
 
 Что делает этот кусок кода? 
 
-Здесь переплетено несколько дел: открывает букву в слове и одновременно выставляет флаг, если такая буква есть в слове.
+Здесь переплетено несколько дел: открывает букву в маске и одновременно выставляет флаг, если такая буква есть в слове.
 
 Выносим этот код во вспомогательный метод:
 ```java
