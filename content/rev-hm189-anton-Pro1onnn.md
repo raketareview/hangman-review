@@ -173,8 +173,8 @@ System.out.println("Нажмите " + 1 + " чтобы продолжить.");
 System.out.println("Буква: " + result + " есть в этом слове.");  //char result
 
 //ПРАВИЛЬНО:
-System.out.printf("Нажмите %d чтобы продолжить.", START);
-System.out.println("Буква: %c есть в этом слове.", result);
+System.out.printf("Нажмите %d чтобы продолжить.  \n", START);
+System.out.printf("Буква: %c есть в этом слове.  \n", result);
 ```
 
 **4. class Words**
@@ -495,7 +495,7 @@ private void openLetter(char letter) {
 public class Main {
   public static void main(String[] args) {
     
-    Dictionary dictionary = new FileDictionary("words.txt");
+    Dictionary dictionary = new Dictionary("words.txt");
     String word = dictionary.getRandomWord();
 
     Game game = new Game(word);
@@ -524,7 +524,7 @@ public class Main {
 
   public static void main(String[] args) {
     
-    Dictionary dictionary = new FileDictionary("words.txt");
+    Dictionary dictionary = new Dictionary("words.txt");
 
     String command = inputCommand();
 
