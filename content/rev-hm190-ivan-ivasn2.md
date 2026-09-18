@@ -334,8 +334,6 @@ public Result processLetter(String letter) {
 public enum Result {
   OK, LETTER_ALREADY_ENTERED, ...;    
 }
-
-letter has already been entered
 ```
 
 **7. class Main**
@@ -350,7 +348,8 @@ Main должен только сконфигурировать зависимо
 
 Если имеется ввиду, что должен быть отдельный класс-движок `HangmanGame` и какой-то класс, который будем управлять этим движком, 
 то логику управления движком нужно вынести в отдельный класс-контроллер. 
-А в Майне оставить только конструирование и запуск системы.  
+А в Майне оставить только конструирование и запуск системы.
+
 Примерно так:
 ```java
 public class Main {
@@ -410,7 +409,7 @@ if (userAnswer.equalsIgnoreCase("N")) {...}
 private static final String START = "N";
 private static final String EXIT = "E";
 
-private static final String INPUT_MESSAGE = "Введите '%c' или '%c'".formatted(START, EXIT);
+private static final String INPUT_MESSAGE = "Введите '%s' или '%s'".formatted(START, EXIT);
 
 System.out.printf("[%s]ew game or [%s]xit ?  \n", START, EXIT);
 String userAnswer = InputValidator.validateInput(input, INPUT_MESSAGE);
