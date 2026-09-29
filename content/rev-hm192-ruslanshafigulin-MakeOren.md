@@ -561,7 +561,7 @@ public class Main {
     try{
       start();
     } catch (Exception e) {
-      System.out.println("Произошла критическая ошибка: " + e.getMessage());
+      System.out.println("Критическая ошибка: " + e.getMessage());
     }
   }
   
@@ -586,7 +586,7 @@ public class Main {
       System.out.println("Ошибка чтения файла: " + filepath);
 
     } catch (Exception e) {   //какая-то не предусмотренная ошибка
-      System.out.println("Произошла критическая ошибка: " + e.getMessage());  
+      System.out.println("Критическая ошибка: " + e.getMessage());  
     }
   }
   
