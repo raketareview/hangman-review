@@ -44,7 +44,7 @@ public static char readRusLetter() {
 Если придерживаться Oracle Java Code Conventions, то эту константу нужно писать стилем UPPER_SNAKE.  
 
 А если конвенции Google, то написано правильно: здесь этот объект-константа может менять своё внутреннее состояние.  
-А значит с точки зрения конвенции Google, этот объект не совсем и константа, не смотря на то, что `private final`
+А значит с точки зрения конвенции Google, этот объект не совсем и константа, не смотря на то, что `static final`
 ```java
 //СЕЙЧАС ТАК:
 private static final Scanner scanner;
@@ -432,7 +432,7 @@ public class Main {
 
     while(true) {
       String command = inputCommand();
-      
+
       if(isStart(command)) {
         String word = dictionary.getRandomWord();
 
