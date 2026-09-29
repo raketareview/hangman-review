@@ -428,17 +428,17 @@ public class Main {
   //... 
 
   public static void main(String[] args) {
-    Dictionary dictionary = new Dictionary(FILE_PATH, MIN_WORD_LENGTH, MAX_WORD_LENGTH);
+    Dictionary dictionary = new Dictionary(FILE_PATH);
 
     while(true) {
       String command = inputCommand();
-      if(command.equals(START)) {
+      if(isStart(command)) {
         String word = dictionary.getRandomWord();
 
         Game game = new Game(word);
         game.start();
 
-      } else if(command.equals(EXIT)) {
+      } else if(isQuit(command)) {
         //действия при выходе
         break;
       } else {
@@ -448,6 +448,12 @@ public class Main {
   }
 
   private static String inputCommand() {...}  
+
+  private static boolean isStart(String command) {
+    return command.equalsIgnoreCase(START);
+  }
+  
+  private static boolean isQuit(String command) {...}
 }
 ```
 
