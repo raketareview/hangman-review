@@ -432,6 +432,7 @@ public class Main {
 
     while(true) {
       String command = inputCommand();
+      
       if(isStart(command)) {
         String word = dictionary.getRandomWord();
 
