@@ -44,7 +44,7 @@ public static char readRusLetter() {
 Если придерживаться Oracle Java Code Conventions, то эту константу нужно писать стилем UPPER_SNAKE.  
 
 А если конвенции Google, то написано правильно: здесь этот объект-константа может менять своё внутреннее состояние.  
-А значит с точки зрения конвенции Google, этот объект не совсем и константа
+А значит с точки зрения конвенции Google, этот объект не совсем и константа, не смотря на то, что `private final`
 ```java
 //СЕЙЧАС ТАК:
 private static final Scanner scanner;
@@ -58,7 +58,7 @@ private static final Scanner scanner;
 
 - Не называй разные концепции одним именем.
 
-Если в проекте есть класс `HangmanStage`, то все переменные с именем, включающим это название, должны быть экземплярами этого класса.  
+Если в проекте есть класс `HangmanStage`, то все переменные с именем, включающим это название, должны быть экземплярами этого класса.
 А геттеры с таким названием должны возвращать экземпляры `HangmanStage`.
 
 Когда разные концепции называются одним и тем же именем, это приводит к путанице
@@ -84,7 +84,7 @@ private static class HangmanStage {
 - Избыточно.
 
 Уточнение, что это не просто буква, а буква юзера, ничего не добавляет к пониманию.  
-С тем же успехом переменная могла называться `userLetterFromConsoleInput`- много лишней информации
+Это так же избыточно, как например `userLetterFromConsoleInput`- много ненужной информации
 ```java
 void calculateHint(char userLetter) {...}
 
@@ -94,7 +94,7 @@ void calculateHint(char letter) {...}
 
 - Но возможно, предыдущее уточнение понадобилось из-за неудачного названия метода
 ```java
-private void calculateHint(char userLetter) { <-- Слово "calculate" это что-то больше про числа и арифметику
+private void calculateHint(char userLetter) { <-- Слово "calculate" это скорее что-то про числа и арифметику
   //открывает букву в маске-hint    
 }  
 
@@ -155,7 +155,7 @@ throw new InvalidUserInputException("Invalid user input in the HangmanConsole.re
 
 **4. class HangmanDictionary**
 
-- Главный публичный метод должен стоять выше вспомогательного приватного метода.
+- Публичные методы должны стоять выше вспомогательных для них приватных методов.
 
 - Минимальный и максимальный размер слов.
 
@@ -213,7 +213,7 @@ private static final Scanner scanner = new Scanner(System.in);
 - Не передавай в методы аргументы-флаги.
 
 Аргумент-флаг - это булева переменная, которая передаётся в метод.  
-И в зависимости от состояния которой метод работает по одному или другому алгоритму
+И в зависимости от состояния этого флага метод работает по одному или другому алгоритму
 ```java
 public static void printGameOver(String answer, int failedAttemptCount, boolean isWin) {  <-- АРГУМЕНТ-ФЛАГ isWin
   if (isWin) {  <-- ПЕРЕКЛЮЧЕНИЕ АЛГОРИТМА ФЛАГОМ
@@ -267,44 +267,21 @@ public static char readGuess() {
 
 *Блох "Java. Эффективное программирование", изд.3, гл.2.6*
 
-- Нарушение правила одной операции. 
-
-Этот метод делает две разные вещи: печатает правила и получает русскую букву от юзера.  
-Это две разные операции
+- Делай информативные сообщения в исключениях. Не пиши, какой класс бросил исключение- это и так будет видно в стектрейсе
 ```java
-public static char readGuess() {
-  printRules();  <-- ПЕРВАЯ ОПЕРАЦИЯ
-  String guess = scanner.nextLine();
-  guess = guess.toLowerCase();
-
-  if (guess.matches("[а-яё]")) {
-    return guess.toCharArray()[0];  <-- ВТОРАЯ ОПЕРАЦИЯ
-  } else {
-    throw new InvalidUserInputException("Invalid user input in the HangmanConsole.readGuess method");
-  }
-}
-```
-
-Нужно убрать из этого метода печать правил.  
-Клиент должен отдельно вызывать печать правил и получение буквы
-```java
-public static void main(String[] args) {
-  //...
-  userAnswer = HangmanConsole.readGuess();
-  //...
+if (guess.matches("[а-яё]")) {
+  return guess.toCharArray()[0];
+} else {
+  throw new InvalidUserInputException("Invalid user input in the HangmanConsole.readGuess method");
 }
 
 //ПРАВИЛЬНО:
-public static void main(String[] args) {
-  //...
-  HangmanConsole.printRules();
-  letter = HangmanConsole.readRusLetter();
-  //...
+if (guess.matches("[а-яё]")) {
+  return guess.toCharArray()[0];
+} else {
+  throw new InvalidUserInputException("Invalid user input: " + guess);
 }
 ```
-*Мартин, "Чистый код", гл.3, "Правило одной операции", "Один уровень абстракции"*
-
-+ 👍 В целом класс норм.
 
 **6. class HangmanGame**
 
