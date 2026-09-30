@@ -162,7 +162,7 @@ try (FileReader fileReader = new FileReader("dictionary.txt")) {
 fileReader.readAllLines();
 ```
 
-Но так как `FileNotFoundException` наследуется от `IOException`, то их оба можно ловить на уровне `IOException`
+Но так как `FileNotFoundException` наследуется от `IOException`, то их оба можно ловить на уровне `IOException` вот так:
 ```java
 try (FileReader fileReader = new FileReader("dictionary.txt")) {
   return fileReader.readAllLines();
@@ -174,7 +174,7 @@ try (FileReader fileReader = new FileReader("dictionary.txt")) {
 - Картинки виселицы должны быть массивом-константой.
 
 Массив картинок не должен быть переменной метода.  
-Потому что в этом случае этот объект(а массив это объект) будет пересоздаваться каждый раз при вызове метода. 
+Потому что если картинки будет переменной метода, то этот объект(а массив это объект) будет пересоздаваться каждый раз при вызове метода. 
 
 Картинки должны храниться в константе
 ```java
