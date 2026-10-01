@@ -447,7 +447,7 @@ private static String getRandomWordFromFile(String fileName) {
 Метод нужно разделить на несколько, каждый из которых будет делать что-то одно:
 ```java
 private static List<String> readFile(String fileName) {...}
-private static String getRandomWord(ist<String> words) {...}
+private static String getRandomWord(List<String> words) {...}
 ```
 *Мартин, "Чистый код", гл.3, "Правило одной операции", "Один уровень абстракции"*
 
@@ -475,6 +475,16 @@ private static boolean applyGuess(String dict, char[] mask, char guess) {
 ```java
 "Либо функция изменяет состояние объекта, либо возвращает информацию об этом объекте. 
 Совмещение двух операций часто создает путаницу." - Мартин.
+```
+
+Здесь должно быть примерно так:
+```java
+boolean isWordLetter(String word, char letter) {...}
+
+void updateMask(String word, char[] mask, char letter) {
+  //открывает букву в маске
+  //если такой буквы нет в слове- бросает исключение
+}
 ```
 
 *Мартин, "Чистый код", гл.3, "Разделение команд и запросов"*
