@@ -55,8 +55,8 @@ WordProvider provider = new WordProvider("src/words.txt");
 wordProviderInitialize(provider);
 ```
 
-- Название "парсированный ввод" ни о чём не говорит.  
-Задача этой переменной- хранить хранить полученную команду
+- Название "распарсенный ввод" ни о чём не говорит.  
+Задача этой переменной- хранить полученную команду
 ```java
 int parsedInput = Integer.parseInt(input);
 
@@ -186,8 +186,8 @@ try {
 
 //ПРАВИЛЬНО:
 String input = scanner.nextLine();
-if(isNumber(input)) {
-   int command = Integer.parseInt(input);  
+if (isNumber(input)) {
+  int command = Integer.parseInt(input);  
 
   //бизнес логика     
 } else {
@@ -211,7 +211,7 @@ private boolean isNumber(String s) {
 
 - Всегда явно указывай уровень доступа.  
 
-Потому что неясно- то ли ты забыл его указать(а однажды забудешь), то ли оно специально задумано как default
+Потому что неясно: то ли ты забыл его указать(а однажды забудешь), то ли оно специально задумано как default
 ```java
 public class WordProvider {
   List<String> words;
@@ -387,7 +387,7 @@ public static HangmanState fromTries(int tries) {
 
 - Нарушение правила одной операции.
 
-Если в названии метода хочется написать "And", "Or", "If" и тому подобное, значит метод делает много разных операция
+Если в названии метода хочется написать "And", "Or", "If" и тому подобное, значит метод делает много разных операций
 
 ```java
 char inputAndletterCheck(Scanner scanner, Set<Character> usedLetters) 
@@ -405,6 +405,14 @@ private char inputRusLetter() {
 }
 ```
 *Мартин, "Чистый код", гл.3, "Правило одной операции", "Один уровень абстракции"*
+
+- Сначала нужно писать `static`
+```java
+final static int ATTEMPTS = 6;
+
+//ПРАВИЛЬНО:
+static final int ATTEMPTS = 6;
+```
 
 - Поля класса.
 
@@ -430,12 +438,12 @@ public class HangmanGame {
   private final Set<Character> usedLetters  = new HashSet<>();
 
   private final String word;
-  private final har[] mask;
+  private final char[] mask;
   //...
 
   void startGame(String word) {
     this.word = word;
-    this.mask = createMask();
+    this.mask = createMask(word);
     //...
   }
 
@@ -538,11 +546,11 @@ WordProvider provider = new WordProvider("src/words.txt");
 
 Признаки процедурного стиля:  
 🔸 Не выявлены и не сделаны в виде классов менее очевидные, чем "Словарь", сущности. Например, "Секретное слово". 
-Значит нет системного понимания объектно-ориентированной декомпозиции.
+Значит, нет системного понимания объектно-ориентированной декомпозиции.
 
 🔸 Те классы, на которые сейчас поделена программа, могут быть и в процедурной программе- процедурный стиль сам по себе не отрицает возможность создания нескольких классов.  
 🔸 Тотальное игнорирование инкапсуляции.  
-🔸 Процедурные приёмы: перекидывание данных между методами вместо выделение их в поля класса - `class HangmanGame`.  
+🔸 Процедурные приёмы: перекидывание данных между методами вместо выделения их в поля класса - `class HangmanGame`.  
 
 ## ВЫВОД
 
