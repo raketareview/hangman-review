@@ -543,6 +543,8 @@ Devise an object-oriented construct that expresses a simple aggregation of value
 Help developers to focus on modeling immutable data rather than extensible behavior.
 ```
 
+Антипаттерн "Пустой рекорд"- `record RussianText` не хранит состояний.
+
 Если нужен класс с развитым поведением, то просто создай обычный класс.
 
 **10. class HangmanArt**
