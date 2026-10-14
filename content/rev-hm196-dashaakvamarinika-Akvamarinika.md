@@ -236,31 +236,33 @@ private final List<Letter> stateWord;  <-- Хранит текст слова
 Что это, составная часть класса `Word`, которую должен видеть клиент точно так же, как в реальной жизни мы видим каждое слово-понятие, состоящим из отдельных букв?  
 В противовес китайцам, которые видят слово-понятие в виде одного общего рисунка.
 
-Тогда в классе достаточно просто хранить одни буквы без исходного текста слова и выдавать эти буквы клиенту.  
+Тогда в классе достаточно только хранить одни буквы без исходного текста слова и выдавать эти буквы клиенту.  
 А клиент должен сам из букв получить текст слова и текст маски:
 ```java
 class Client {
+  //...
+
   public void someMethod() {
     String text = toText(word);
     String mask = toMask(word, MASK_SYMBOL);
     //...
   }
-}
 
-private String toMask(Word word, char MASK_SYMBOL) {
-  StringBuilder sb = new StringBuilder(); 
-  for(Letter letter : word.getLetters()) {
-    if(letter.isOpen) {
-       //...  
-    } else {
-      sb.append(MASK_SYMBOL);
+  private String toMask(Word word, char MASK_SYMBOL) {
+    StringBuilder sb = new StringBuilder(); 
+    for(Letter letter : word.getLetters()) {
+      if(letter.isOpen) {
+         //...  
+      } else {
+        sb.append(MASK_SYMBOL);
+      }
     }
+    return sb.toString();
   }
-  return sb.toString();
 }
 ```
 
-Сейчас по этому принципу у тебя в программе и печатается маска слова: 
+Сейчас по этому принципу у тебя в программе печатается маска слова: 
 ```java
 public class ConsoleUI implements GameUI {
 
