@@ -102,8 +102,7 @@ public class Dictionary {
   public static String getRandom(List<String> lines) {...}
 }
 ```
-
-Иначе, термин "Word" у тебя в проекте приходится понимать в двух разных контекстах.
+Иначе термин "Word" у тебя в проекте приходится понимать в двух разных контекстах.
 
 - Формулируй точнее
 ```java
@@ -191,6 +190,7 @@ public static List<String> wordListCreator() throws Exception {...}
 //ПРАВИЛЬНО:
 public static List<String> wordListCreator() {...}
 ```
+*"ЧК", гл.7, "...проверяемые исключения"*
 
 **4. Форматирование**
 
@@ -226,9 +226,6 @@ String message = "Стадия повешения превышает MAX_MISTAKE
 throw new IllegalStateException(message);
 ```
 Естественно, месседж в исключении должен быть на англ.
-
-Изучи различия проверяемых и непроверяемых исключений  
-*"ЧК", гл.7, "...проверяемые исключения"*
 
 **5. class Word**
 
