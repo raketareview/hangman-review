@@ -80,7 +80,7 @@ List<String> createWords()
 
 - ...если у тебя в проекте есть класс "Word", то все методы с названием, включающим это слово, должны работать с экземплярами этого класса.
 
-Поэтому класс "WordProvider" должен провайдировать экземпляры `Word`, а не String.  
+Поэтому класс "WordProvider" должен провайдировать экземпляры `Word`, а не `String`.  
 Ну, или называться по-другому
 ```java
 public class Word {...}
@@ -95,9 +95,11 @@ public class WordProvider {
 //ПРАВИЛЬНО:
 public class Dictionary {
   //...
-  public static List<String> getAll() {...}
+  public static List<String> read() {
+    //читает строки из файла
+  }
 
-  public static String getRandom(List<String> words) {...}
+  public static String getRandom(List<String> lines) {...}
 }
 ```
 
