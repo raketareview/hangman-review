@@ -239,7 +239,8 @@ throw new IllegalStateException(message);
 Например, геттеры и сеттеры
 ```java
 public static String value;
-```  
+```
+Публичными могут быть только константы.
 
 - Нарушение ООП дизайна.
 
