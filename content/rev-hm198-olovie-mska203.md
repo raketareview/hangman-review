@@ -1,4 +1,4 @@
-https://github.com/smska203/Hangman 
+https://github.com/smska203/Hangman  
 [olovie]
 
 Игра написана в ООП стиле.
