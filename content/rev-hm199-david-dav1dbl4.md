@@ -66,7 +66,7 @@ List<String> words
 
 - Название методов должно быть глаголом в повелительном наклонении.  
 
-По правилам английского языка, в предложении сначала стоит глагол
+По правилам английского языка, глагол в предложении стоит сначала
 ```java
 String wordInit() {...}
 
@@ -90,7 +90,7 @@ public static String wordInit() {
 public static String getRandomWord() {...}
 ```
 
-- Это названия метода - существительное
+- Это название метода - существительное
 ```java
 void gameResult() 
 ```
@@ -105,18 +105,12 @@ public class Menu {
 
 - Название переменной должно быть существительным. Этот сканер не нажимает для продолжения, он - просто сканер
 ```java
-public static void pressToContinue() {
-  System.out.println("Нажмите Enter для продолжения...");
-  Scanner pressToContinue = new Scanner(System.in);
-  pressToContinue.nextLine();
-}
+Scanner pressToContinue = new Scanner(System.in);
+pressToContinue.nextLine();
 
 //ПРАВИЛЬНО:
-public static void pressToContinue() {
-  System.out.println("Нажмите Enter для продолжения...");
-  Scanner scanner = new Scanner(System.in);
-  scanner.nextLine();
-}
+Scanner scanner = new Scanner(System.in);
+scanner.nextLine();
 ```
 
 - Не дублируй имя класса в названии метода класса
@@ -218,14 +212,6 @@ List<Character> wrongLetters;
 
 **4. class WordInitialization**
 
-- Соблюдай требования утилитных классов. 
-
-Это утилитный класс, он содержит только статические методы.  
-Утилитные классы, как и классы констант, должны быть `final` и иметь приватный конструктор.  
-Не должно быть возможности унаследоваться от утилиты или сделать ее экземпляр.
-
-*Блох, "Java. Эффективное программирование", изд.3, гл.2.4*
-
 - Слова не читаются из файла, а захардкоджены в виде списка
 ```java
 public class WordInitialization {
@@ -239,14 +225,9 @@ public class WordInitialization {
 Это и так простой проект, не делай его совсем примитивным.  
 Слова здесь нужно загружать из файла - для практики работы с файловым чтением.
 
-- Тут избыточно
+- Избыточно
 ```java
 List<String> ArrayList = new ArrayList<>(List.of("Шприц", "Слово", ...));
-
-Random random = new Random();
-int randomIndex = random.nextInt(ArrayList.size());
-
-return ArrayList.get(randomIndex);
 
 //ПРАВИЛЬНО:
 List<String> words = List.of("Шприц", "Слово", ...);
@@ -470,7 +451,7 @@ public static void gameStart() {
 ```java
 public static void gameStart() {
   //куча кода
-  if(isImputedLetter(letter)) {
+  if(isInputtedLetter(letter)) {
     //букву уже вводили - выполнить соответствующие действия
     continue
   }
@@ -481,7 +462,6 @@ public static void gameStart() {
   }
 
   openLetter(letter);  //эта буква есть в слове - открываем её в маске
-
   //ещё куча кода
 }  
 
@@ -507,12 +487,6 @@ private static void getAnswerWord(int index) {
 
 //ПРАВИЛЬНО:
 private static void openLetterBy(int index) {...}
-}  
-```
-
-- Нарушение правила одной операции 
-```java
-
 ```
 
 - Нарушение правила одной операции. 
@@ -582,9 +556,9 @@ if (answerLetter >= 'a' && answerLetter <= 'z') {...}
 
 Сейчас некоторые методы в проекте не соответствуют этим требованиям.
 
-Посмотри на ютубе ролики для начинающих по принципам создания методов
+Посмотри на ютубе ролики для начинающих по каким принципам нужно создавать методы:
 ```
-Ролики Немчинского для новичков на ютубе:
+[Ролики Немчинского для новичков на ютубе]
 "Правильные методы по Clean Code"
 "Как называть переменные, методы и классы? Чистый код (Clean Code)"
 "Принцип хорошего кода KISS"
