@@ -226,7 +226,7 @@ List<Character> wrongLetters;
 
 *Блох, "Java. Эффективное программирование", изд.3, гл.2.4*
 
-- Слова не читаются из файла, а захардкодженены в виде списка
+- Слова не читаются из файла, а захардкоджены в виде списка
 ```java
 public class WordInitialization {
   public static String wordInit() {
@@ -519,7 +519,7 @@ private static void openLetterBy(int index) {...}
 
 Этот метод делает разные вещи.
 Судя по названию, он должен проверит букву (что бы это ни значило).  
-На замом деле он проверяет букву, пишет на экран результаты проверки, принимает от юзера команду для продолжения работы
+На самом деле он проверяет букву, пишет на экран результаты проверки, принимает от юзера команду для продолжения работы
 ```java
 private static boolean checkInputLetter(char answerLetter) {
   if (Character.isDigit(answerLetter) || !Character.isLetter(answerLetter)) {
