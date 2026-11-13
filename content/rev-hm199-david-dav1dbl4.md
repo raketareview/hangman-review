@@ -538,7 +538,7 @@ public class Game {
 if (answerLetter >= 'a' && answerLetter <= 'z' || answerLetter >= 'A' && answerLetter <= 'Z') {...}
 
 //ПРАВИЛЬНО:
-answer = Character.toLowerCase(answerLetter);
+answerLetter = Character.toLowerCase(answerLetter);
 if (answerLetter >= 'a' && answerLetter <= 'z') {...}
 ```
 
