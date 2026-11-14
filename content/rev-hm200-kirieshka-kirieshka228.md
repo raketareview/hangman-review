@@ -1,7 +1,8 @@
 https://github.com/krieshka228/Hangman_java  
 [Кириешка]
 
-Игра написана в процедурном стиле, состоит из двух классов.
+Игра написана в процедурном стиле, состоит из двух классов.  
+Не работает.
 
 ## НЕДОСТАТКИ РЕАЛИЗАЦИИ
 
@@ -82,8 +83,8 @@ public class Game {
 //ПРАВИЛЬНО ИЛИ ТАК:
 public class Game {
   private static final String PATH = "Words.txt";
-    final static final String CONGRATULATIONS = "Поздравляю! Вы победили!!!";
-    final static final String LOOS = "Вы потратили все попытки.";
+    static final String CONGRATULATIONS = "Поздравляю! Вы победили!!!";
+    static final String LOOS = "Вы потратили все попытки.";
   //...
 
   private void playGame() {
@@ -277,13 +278,13 @@ return (code > 1040 && code < 1103) || code == 1025 || code == 1105;
 
 //ПРАВИЛЬНО (С ТОЧКИ ЗРЕНИЯ ИСПОЛЬЗОВАНИЯ CHAR):
 return (code > 'А' && code < 'я') || code == 'ё' || code == 'Ё';
-``` 
+```
 Почитай про то, как символы хранятся в таблице Unicode.
 
 - Если сравнивать символы через `char`, а не через `int`, то сразу видно, где у тебя будет ошибка:
 ```java
 return (code > 'А' && code < 'я') || code == 'ё' || code == 'Ё';
-``` 
+```
 
 **8. Каждый switch должен иметь default**
 ```java
@@ -415,7 +416,7 @@ private static char[] mask;
 
 private void playGame() {
   //куча кода
-  if(isWin()) {
+  if (isWin()) {
     // действия при выигрыше
   }
 
@@ -448,7 +449,7 @@ private static final int MAX_ERROR = 6;
 private static int error;
 
 private void playGame() {
-  while(!isGameOver()) {...}
+  while (!isGameOver()) {...}
 }
 
 private boolean isGameOver() {
@@ -463,7 +464,7 @@ private static boolean isLose() {
 
 ## ВЫВОД
 
-Сейчас весь код программы, в основном, свален в один метод - `playGame()`.  
+Сейчас весь код программы в основном свален в один метод - `playGame()`.  
 Поэтому код читается тяжело, разобраться в нём сложно. 
 
 Для всех стилей программирования на уровне первого проекта нужно научиться делать методы, которые будут соответствовать таким требованиям:  
