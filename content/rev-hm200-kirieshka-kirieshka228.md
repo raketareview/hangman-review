@@ -271,13 +271,13 @@ private boolean isCyrillic(char symbol) {
 }
 ```
 
-- Неправильная работа с char.
+- Неправильная работа с `char`.
 
-Каждый символ имеет свой цифровой код в таблице Unicode, поэтому можно напрямую буквы сравнивать как цифры 
+Каждый символ имеет свой цифровой код в таблице Unicode, поэтому буквы можно сравнивать так же, как цифры 
 ```java
 return (code > 1040 && code < 1103) || code == 1025 || code == 1105;
 
-//ПРАВИЛЬНО (С ТОЧКИ ЗРЕНИЯ ИСПОЛЬЗОВАНИЯ CHAR):
+//ПРАВИЛЬНО:
 return (code > 'А' && code < 'я') || code == 'ё' || code == 'Ё';
 ```
 Почитай про то, как символы хранятся в таблице Unicode.
@@ -446,7 +446,6 @@ private void playGame() {
 
 //ПРАВИЛЬНО:
 private static final int MAX_ERROR = 6;
-
 private static int error;
 
 private void playGame() {
