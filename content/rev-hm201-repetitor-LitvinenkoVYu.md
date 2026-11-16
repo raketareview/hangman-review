@@ -390,7 +390,8 @@ private static boolean isRusLetter(char symbol) {...}
 public static int playRound(String secretWord, int errors, char[] mask, ArrayList<Character> usedLetters, Scanner sc) {...}
 public static boolean processGuess(char letter, String secretWord, char[] mask) {...}
 ```
-Код становится более сложным и хуже читаем по сравнению с тем, если бы данные принимались не в аргументы метода, а брались из окружения класса.  
+Код становится более сложным и хуже читаем по сравнению с тем, если бы данные принимались не в аргументы метода, а брались из окружения класса.
+
 Условный пример:
 ```java
 //❌️ ПЛОХО:
