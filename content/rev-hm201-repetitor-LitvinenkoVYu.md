@@ -460,7 +460,6 @@ if (isGameWon(mask)) {
 } else {
   printLostMessage(...);
 }
-
 ```
 
 **13. class HangmanPicture**
