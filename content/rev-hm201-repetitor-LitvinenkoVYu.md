@@ -385,7 +385,7 @@ private static boolean isRusLetter(char symbol) {...}
 Сейчас в рамках класса нет таких "глобальных полей".
 Эти данные сейчас сделаны переменными методов и они перекидываются из метода в метод через входящие аргументы.
 
-Это приводит к тому, что сигнатура таких методов сильно разбухает- приходится принимать во входящие кучу "общих" данных
+Это приводит к тому, что сигнатура таких методов сильно разбухает - приходится принимать во входящие кучу "общих" данных
 ```java
 public static int playRound(String secretWord, int errors, char[] mask, ArrayList<Character> usedLetters, Scanner sc) {...}
 public static boolean processGuess(char letter, String secretWord, char[] mask) {...}
@@ -393,13 +393,13 @@ public static boolean processGuess(char letter, String secretWord, char[] mask) 
 Код становится более сложным и хуже читаем по сравнению с тем, если бы данные принимались не в аргументы метода, а брались из окружения класса.  
 Условный пример:
 ```java
-//ПЛОХО:
+//❌️ ПЛОХО:
 private void openLetter(String word, char[] mask, char letter) {
   //открывает букву letter в маске,
   //если эта буква присутствует в слове
 }
 
-//ХОРОШО:
+//✅ ХОРОШО:
 private static String word;
 private static char[] mask;
 
@@ -411,7 +411,7 @@ private void openLetter(char letter) {
 
 В таком виде поля `word` и `mask` фактически становятся глобальными переменными - стандартная ситуация при процедурном программировании.
 
-Отказ от использования глобальных переменных при процедурном стиле программирования провоцирует написание божественных методов.  
+Отказ от использования глобальных переменных при процедурном стиле программирования провоцирует написание божественных методов.
 Потому что в этом случае не хочется писать методы, которые кидают друг целую кучу аргументов во входящие.
 
 Вопрос о том, какие переменные должны быть полями класса, а какие - полями методов, всегда нужно решать индивидуально.  
@@ -433,6 +433,10 @@ public static int playRound(...) {
 
 private static boolean isGameOver() {
   return isGameLost() || isGameWon();
+}
+
+private static boolean isGameLost() {
+  return errors >= MAX_ERRORS;
 }
 ```
 Даже если метод состоит из одной строки, но при этом делает код программы читабельнее, то этот метод имеет право на жизнь.
@@ -472,8 +476,8 @@ public static void printHangman(int errors) {
 
 //ПРАВИЛЬНО:
 public static void printHangman(int errors) {
-  String picture = PICTURES[errors];
-  System.out.println(picture);  <-- Кинет исключение, если попытались распечатать несуществующую картинку 
+  String picture = PICTURES[errors];  <-- Кинет исключение, если попытались получить несуществующую картинку 
+  System.out.println(picture);  
 }
 ```
 Потому что, если кто-то попытается распечатать несуществующую картинку, то это баг алгоритма.  
