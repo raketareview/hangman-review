@@ -603,7 +603,7 @@ for (Map.Entry<String, Long> entry : countLetters.entrySet()) {
 ```
 
 Стримы сами по себе не делают плохой непонятный код лучше, они просто делают плохой код через стрим.  
-Зачем этот код - не понимаю
+Зачем этот код - не понятно
 ```java
 Map<String, Long> countLetters = Arrays.stream(word.split(""))
   .collect(Collectors.groupingBy(
@@ -613,7 +613,7 @@ Map<String, Long> countLetters = Arrays.stream(word.split(""))
 
 *"ЧК", гл.3, "Компактность", "Правило одной операции", "Один уровень абстракции"*
 
-- Несколько операций на одном уровне абстракции
+- Создавай вспомогательные методы, делай код проще и понятнее
 ```java
 private void processGuess(String letter) {
   boolean isMistake = true;
