@@ -391,7 +391,7 @@ consoleUI.printMessage("Загаданное слово: %s".formatted(secretWor
 consoleUI.printMessage("Загаданное слово: " + secretWord.getWord());
 ```
 
-- Если всё равно юзаешь UI класс, то логично всю распечатку туда передать
+- Если всё равно юзаешь UI класс, то логично туда передать всю распечатку: 
 ```java
 consoleUI.printMessage("Ты проиграл(");
 consoleUI.printMessage("Загаданное слово: %s".formatted(secretWord.getWord()));
