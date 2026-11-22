@@ -245,7 +245,7 @@ public class EnConsoleUI extends ConsoleUI {
 Создавать эти зависимости нужно в `main` через фабрику - чтобы не было багов, когда словарь одного языка, а UI - другого 
 ```java
 public class Main {
-  private static final Language LANGUAGE = Language.Ru;
+  private static final Language LANGUAGE = Language.RU;
 
   public static void main(String[] args) {
     Factory factory = new Factory(LANGUAGE);  //абстрактная фабрика
@@ -281,7 +281,7 @@ public class Menu {
 }
 ```
 
-ИЛИ принимай и распечатывай меню целиком, а не по запчастям
+Нужно ИЛИ сделать меню моделью и принимать его в метод распечатки целиком, а не по запчастям
 ```java
 //СЕЙЧАС ТАК:
 public void printMenu(String title, List<MenuOption> menuOptions) {
@@ -296,7 +296,7 @@ public void printMenu(Menu menu) {
 }
 ```
 В этом случае Меню должно быть классом-моделью, задача которой только хранить данные: заголовок, номер (ключ) пункта меню и текст пункта меню.  
-Тогда Меню-модель не должна в себе иметь метод распечатки.
+Такая Меню-модель не должна в себе иметь метод распечатки.
 
 ИЛИ меню должно само себя распечатывать, а не юзать для этого левый класс
 ```java
