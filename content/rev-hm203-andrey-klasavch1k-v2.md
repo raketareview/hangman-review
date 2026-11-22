@@ -404,7 +404,7 @@ consoleUI.printLossMessage(secretWord.getWord());
 consoleUI.printWinMessage();
 ```
 
-Плюсы: `ConsoleUI` избавляется от текстов и оставляет себе только логику.  
+Плюсы: `GameSession` избавляется от текстов и оставляет себе только логику.  
 И тем самым становится не привязан, например, к конкретному языку визуального интерфейса. 
 
 **12. class GameRunner**
