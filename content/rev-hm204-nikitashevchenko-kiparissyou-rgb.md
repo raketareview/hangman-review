@@ -535,7 +535,7 @@ while (mask.toString().contains("*") && countOfMistakes < 6) {...}
 
 //ПРАВИЛЬНО:
 private static final int MAX_MISTAKE = 6;
-private static final int MASK_SYMBOL = "*";
+private static final String MASK_SYMBOL = "*";
 
 private static StringBuilder mask;
 private static int mistakeCount;
