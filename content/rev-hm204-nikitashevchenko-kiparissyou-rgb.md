@@ -433,8 +433,10 @@ public static String turnToAsterisks(StringBuilder a) {
   }
   return stars.toString();
 }
+```
 
-//ЕЩЁ ЛУЧШЕ:
+Конкретно здесь можно сделать ещё проще:
+```java
 public static String turnToAsterisks(StringBuilder a) {
   int count = a.length();
   return "*".repeat(count);
